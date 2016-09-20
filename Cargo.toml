@@ -1,0 +1,9 @@
+[package]
+name = "for-rubists-server"
+version = "0.1.0"
+authors = ["Cristian Oliveira <contato@cristianoliveira.com.br>"]
+
+[dependencies]
+iron="*"
+mount = "0.2"
+staticfile = "*"

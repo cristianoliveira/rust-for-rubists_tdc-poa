@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>rust for rubyists - tdc</title>
+
+    <meta name="description" content="a talk, about rust.">
+    <meta name="author" content="cristian oliveira">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/night.css" id="theme">
+
+    <!-- for syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- if the query includes 'print-pdf', use the pdf print sheet -->
+    <script>
+document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
+    <!--[if lt ie 9]>
+      <script src="lib/js/html5shiv.js"></script>
+      <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <section>
+          <h1>Rust for Rubyists</h1> <h2>TDC - POA</h1>
+          <p>
+          by <a href="http://cristianoliveira.net">Cristian Oliveira</a>
+          </p>
+
+          <p>
+          slides: <a href="https://github.com/cristianoliveira/rust-for-rubists_tdc-poa">github.com/cristianoliveira/rust-for-rubists_tdc-poa</a>
+          </p>
+        </section>
+
+        <section>
+          <section>
+            <h2>Sobre a linguagem</h2>
+            <p>Rust é uma linguagem extremamente rápida de tipagem estática que garante 
+            operações memory safety e concorrência sem condições de corrida.</p>
+          </section>
+
+          <section>
+            <h3>Legal mas:</h3>
+            <ul>
+              <li>Eu ja programo em ruby</li>
+              <li>Ruby paga minhas contas</li>
+              <li>Eu gosto de ruby</li>
+            </ul>
+          </section>
+
+          <section>
+            <img src="img/but-why.gif"></img>
+          </section>
+
+          <section>
+            <h2>Porque devo me preocupar com Rust?</h2>
+          </section>
+
+          <section>
+            <p>"A language that doesn’t affect the way you think about programming is not worth knowing."</p>
+            <p>- Alan Perlis</p>
+          </section>
+
+          <section>
+            <h2>Ruby</h2>
+            <h3>O que poderia ser melhor :/</h3>
+            <ul>
+              <li>Concorrência</li>
+              <li>Safety guarantees e thread-safe</li>
+              <li>Mutabilidade pra todo lado</li>
+              <li>Quase nada funcional</li>
+              <li>Speed</li>
+              <li>nil</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Ruby</h2>
+            <h3>No que a linguagem manda bem :)</h3>
+            <ul>
+              <li>A comunidade</li>
+              <li>A sintaxe é muito boa</li>
+              <li>É focada na felicidade do Dev</li>
+              <li>Tipagem dinamica</li>
+              <li>Agilidade</li>
+              <li>Blocks</li>
+            </ul>
+          </section>
+          <section>
+            <h2>O que eu ganho?</h2>
+            <p>No minimo, podemos aprender um bocado de boas práticas com
+              uma linguagem que prove Concorrência, Thread-safe, Imutabilidade by default e
+              é extremamente rápida. </p>
+
+            <p>Sem perder a sintaxe agradável e as facilidades de 
+              uma linguagem dinâmica.</p>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>Mão a massa</h1>
+          </section>
+
+          <section>
+            <h2>Bom e velho: Hello World</h2>
+            <pre><code data-trim>
+              fn main() {
+                  println!("Hello, world!");
+              }
+            </code></pre>
+          </section>
+        </section>
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+
+    <script>
+
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+  controls: true,
+  progress: true,
+  history: true,
+  center: true,
+
+  theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+  transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+    // Optional libraries used to extend on reveal.js
+  dependencies: [
+  { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+  { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+  { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+      { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+});
+
+    </script>
+
+  </body>
+</html>
