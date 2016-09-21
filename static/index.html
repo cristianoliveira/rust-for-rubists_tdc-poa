@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="en">
-
-  <head>
-    <meta charset="utf-8">
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <title>rust for rubyists - tdc</title>
 
@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="css/theme/night.css" id="theme">
 
     <!-- for syntax highlighting -->
-    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <link rel="stylesheet" href="lib/css/solarized-dark.css">
 
     <!-- if the query includes 'print-pdf', use the pdf print sheet -->
     <script>
@@ -88,11 +88,13 @@ document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.se
               <li>nil</li>
             </ul>
           </section>
+
           <section>
             <h2>Ruby</h2>
             <h3>No que a linguagem manda bem :)</h3>
             <ul>
               <li>A comunidade</li>
+              <li>Metaprogramming</li>
               <li>A sintaxe é muito boa</li>
               <li>É focada na felicidade do Dev</li>
               <li>Tipagem dinamica</li>
@@ -100,6 +102,7 @@ document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.se
               <li>Blocks</li>
             </ul>
           </section>
+
           <section>
             <h2>O que eu ganho?</h2>
             <p>No minimo, podemos aprender um bocado de boas práticas com
@@ -110,21 +113,72 @@ document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.se
               uma linguagem dinâmica.</p>
           </section>
         </section>
-
+<!--Part2-->
         <section>
           <section>
             <h1>Mão a massa</h1>
+            <h4>online:</h4><p>https://play.rust-lang.org/</p>
+            <h4>instalar:</h4><p>https://www.rust-lang.org/en-US/downloads.html</p>
           </section>
 
           <section>
-            <h2>Bom e velho: Hello World</h2>
-            <pre><code data-trim>
+            <h4>Semelhanças</h4>
 
+            <ul>
+              <li>Convenção para nome de variáveis
+                <pre><code class="lang-rust">let snake_case</code></pre></li>
+              <li>Blocks com '{}'
+              <pre><code class="lang-rust">while true { do_stuff() }</code></pre></li>
+              <li>Parece dinamicamente tipada, mas é inferência.
+              <pre><code class="lang-rust">let num = 0; let string = "a"</code></pre></li>
+              <li>Não precisa de 'return' no fim do bloco.</li>
+            </ul>
+          </section>
+          <section>
+            <h4>Diferenças</h4>
+            <ul>
+              <li>O statement deve terminar com ';' menos o último.</li>
+              <li>'fn' no lugar de 'def'</li>
+              <li>Imutabilidade by default ou mutabilidade explicita!</li>
+              <li>Não tente enganar o compilador! Ele vai reclamar.</li>
+              <pre><code class="lang-rust">fn f(x){
+  let a = 0; // Imutable
+  let mut b = 1; // Mutable
+  b = a + 1; // Permitido
+  a = b + 1; // Erro! 
+
+  a + b + x // retorna o ultimo statement
+}</code></pre></li>
+            </ul>
+          </section>
+          <section>
+            <h2>Bom e velho: Hello World</h2>
+            <h5>rust</h5>
+            <pre><code data-trim>
 fn main() {
     println!("Hello, world!");
 }
             </code></pre>
-            <small>example/rust/helloword.rs<small>
+            <pre><code data-trim>
+$ rustc examples/rust/helloworld.rs && ./helloworld
+            </code></pre>
+            <h5>ruby</h5>
+            <pre><code data-trim>
+    puts "Hello, world!"
+            </code></pre>
+            <pre><code data-trim>
+$ ruby examples/rust/helloworld.rb
+            </code></pre>
+          </section>
+          <section>
+            <h2>Cargo:</h2>
+            <h4>the package manager and build tool</h4>
+            <p>'Hello world' com cargo:</p>
+            <pre><code data-trim>
+~$ cargo new helloword --bin
+~$ cd helloword/ 
+helloword$ cargo run
+            </code></pre>
           </section>
         </section>
       </div>
@@ -148,13 +202,19 @@ Reveal.initialize({
 
     // Optional libraries used to extend on reveal.js
   dependencies: [
-  { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-  { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-  { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-      { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    { src: 'plugin/markdown/marked.js' },
+    { src: 'plugin/markdown/markdown.js' },
+    { src: 'plugin/notes/notes.js', async: true },
+    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
   ]
+  // dependencies: [
+  // { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+  // { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+  // { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+  //   { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+  //   { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+  //     { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+  // ]
 });
 
     </script>
