@@ -57,58 +57,113 @@ document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.se
           <section>
             <h3>Legal mas:</h3>
             <ul>
-              <li>Eu ja programo em ruby</li>
+              <li>Eu já programo em ruby</li>
               <li>Ruby paga minhas contas</li>
               <li>Eu gosto de ruby</li>
             </ul>
-            <h3>E você quer que eu aprenda esse tal de Rust</h3>
           </section>
 
+          <section>
+            <h2>E mesmo assim devo aprender Rust?</h2>
+          </section>
+          
           <section>
             <img src="img/but-why.gif"></img>
           </section>
 
           <section>
-            <h2>Porque devo me preocupar com Rust?</h2>
+            <h2>Motivo 1</h2>
             <p>"A language that doesn’t affect the way you think about programming is not worth knowing."</p>
             <p>- Alan Perlis</p>
           </section>
 
           <section>
-            <h2>Ruby</h2>
-            <h3>O que poderia ser melhor :/</h3>
-            <ul>
-              <li>Concorrência</li>
-              <li>Safety guarantees e thread-safe</li>
-              <li>Mutabilidade pra todo lado</li>
-              <li>Quase nada funcional</li>
-              <li>Speed</li>
-              <li>nil</li>
-            </ul>
+            <h2>Motivo 2</h2>
+            <h3>Ruby é lento.</h3>
+            <pre><code class="lang-bash">
+~$ time ruby examples/ruby/helloworld.rb
+Hello, world
+ruby examples/ruby/helloworld.rb  0.04s user 0.01s system 94% cpu 0.045 total
+            </code></pre>
           </section>
 
           <section>
-            <h2>Ruby</h2>
-            <h3>No que a linguagem manda bem :)</h3>
-            <ul>
-              <li>A comunidade</li>
-              <li>Metaprogramming</li>
-              <li>A sintaxe é muito boa</li>
-              <li>É focada na felicidade do Dev</li>
-              <li>Tipagem dinamica</li>
-              <li>Agilidade</li>
-              <li>Blocks</li>
-            </ul>
+            <h3>Rust é extremamente rápido.</h3>
+            <pre><code class="lang-bash">
+~$ time ./helloworld                                                                                 [ruby-2.2.1]
+Hello, world
+./helloworld  0.00s user 0.00s system 66% cpu 0.003 total
+            </code></pre>
           </section>
 
           <section>
-            <h2>O que eu ganho?</h2>
-            <p>No minimo, podemos aprender um bocado de boas práticas com
-              uma linguagem que prove Concorrência, Thread-safe, Imutabilidade by default e
-              é extremamente rápida. </p>
+            <img src="img/whocares.jpg"></img>
+            <p>"Não uso Ruby por ser rápido e se precisar de performance posso descer para C"</p>
+          </section>
 
-            <p>Sem perder a sintaxe agradável e as facilidades de 
-              uma linguagem dinâmica.</p>
+          <section>
+            <img src="img/heywhat.gif"></img>
+            <h2>Então qual é o ponto?</h2>
+          </section>
+
+          <section>
+            <h3>Rails App</h3>
+            <p>"Gostamos do Rails pois ele facilita nossa vida! Mas como lidar com uma aplicação monolitica?"</p>
+          </section>
+
+          <section>
+            <h2>Rust as a service :P</h2>
+          </section>
+
+          <section>
+            <h2>Motivo 2</h2>
+            <p>Muita gente massa do Ruby esta participando do Rust</p>
+          </section>
+
+          <section>
+            <h2>Motivo 3</h2>
+            <p>Toda a segurança e conveniência do Ruby em código nativo - wycat</p>
+            <img src="img/rustconf.jpg" height="500"></img>
+          </section>
+
+          <section>
+            <h2>Motivo 3</h2>
+            <p>Toda a segurança e conveniência do Ruby em código nativo - wycat</p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>Me desculpem!</h1>
+          </section>
+          <section>
+            <h1>Precisamos que falar sobre pointers</h1>
+          </section>
+          <section>
+            <h2>Stack x Heap</h2>
+          </section>
+          <section>
+            <h3>Stack memory</h3>
+            <ul>
+              <li>Gerenciada e otimizada pela CPU</li>
+              <li>Escopo local</li>
+              <li>Extremamente Rápida</li>
+              <li>Limitada</li>
+            </ul>
+          </section>
+          <section>
+            <h3>Heap memory</h3>
+            <ul>
+              <li>Alguem tem que gerenciar</li>
+              <li>Escopo global</li>
+              <li>Lenta</li>
+            </ul>
+          </section>
+          <section>
+            <h3>Diferenças</h3>
+            <h4>Ruby</h4>
+            <h5>Basicamente *tudo e alocado na Heap</h5>
+            <h4>Rust</h4>
+            <h5>Preferência para stack sobre heap</h5>
           </section>
         </section>
 <!--Part2-->
@@ -128,7 +183,7 @@ document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.se
               <li>Blocks com '{}'
               <pre><code class="lang-rust">while true { do_stuff() }</code></pre></li>
               <li>Parece dinamicamente tipada, mas é inferência.
-              <pre><code class="lang-rust">let num = 0; let string = "a"</code></pre></li>
+              <pre><code class="lang-rust">let num = 0; let string = "a"; let s:str = "a";</code></pre></li>
               <li>Não precisa de 'return' no fim do bloco.</li>
             </ul>
           </section>
