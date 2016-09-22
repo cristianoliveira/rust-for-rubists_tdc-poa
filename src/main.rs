@@ -17,5 +17,6 @@ fn main() {
     let mut mount = Mount::new();
     // Serve the shared JS/CSS at /
     mount.mount("/", Static::new(Path::new("static/")));
+    println!("Running on: http://localhost:3000");
     Iron::new(mount).http("127.0.0.1:3000").unwrap();
 }
