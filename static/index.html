@@ -37,7 +37,7 @@ document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.se
       <!-- any section element inside of this container is displayed as a slide -->
       <div class="slides">
         <section>
-          <h1>Rust for Rubyists</h1> <h2>TDC - POA</h1>
+          <h1>Rust from ruby</h1> <h2>TDC - POA</h1>
           <p>
           by <a href="http://cristianoliveira.net">Cristian Oliveira</a>
           </p>
@@ -66,7 +66,7 @@ document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.se
           <section>
             <h2>E mesmo assim devo aprender Rust?</h2>
           </section>
-          
+
           <section>
             <img src="img/but-why.gif"></img>
           </section>
@@ -79,20 +79,20 @@ document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.se
 
           <section>
             <h2>Motivo 2</h2>
-            <h3>Ruby é lento.</h3>
-            <pre><code class="lang-bash">
-~$ time ruby examples/ruby/helloworld.rb
-Hello, world
-ruby examples/ruby/helloworld.rb  0.04s user 0.01s system 94% cpu 0.045 total
-            </code></pre>
-          </section>
-
-          <section>
             <h3>Rust é extremamente rápido.</h3>
             <pre><code class="lang-bash">
 ~$ time ./helloworld                                                                                 [ruby-2.2.1]
 Hello, world
 ./helloworld  0.00s user 0.00s system 66% cpu 0.003 total
+            </code></pre>
+          </section>
+
+          <section>
+            <h3>Mesmo código em Ruby</h3>
+            <pre><code class="lang-bash">
+~$ time ruby examples/ruby/helloworld.rb
+Hello, world
+ruby examples/ruby/helloworld.rb  0.04s user 0.01s system 94% cpu 0.045 total
             </code></pre>
           </section>
 
@@ -127,19 +127,20 @@ Hello, world
           </section>
 
           <section>
-            <h2>Motivo 3</h2>
-            <p>Toda a segurança e conveniência do Ruby em código nativo - wycat</p>
+            <h2>Motivo 4</h2>
+            <p>Você pode aprender muito como Ruby funciona através do Rust</p>
+            <h5>Tentarei ensinar algo novo hoje! :)</h5>
           </section>
         </section>
         <section>
           <section>
-            <h1>Me desculpem!</h1>
+            <h1>Coisas que aprendi sobre Ruby aprendendo Rust</h1>
           </section>
           <section>
-            <h1>Precisamos que falar sobre pointers</h1>
+            <h2>Me desculpem!</h2>
           </section>
           <section>
-            <h2>Stack x Heap</h2>
+            <h2>Temos que falar sobre Stack x Heap memory</h2>
           </section>
           <section>
             <h3>Stack memory</h3>
@@ -150,21 +151,50 @@ Hello, world
               <li>Limitada</li>
             </ul>
           </section>
+
           <section>
             <h3>Heap memory</h3>
             <ul>
-              <li>Alguem tem que gerenciar</li>
+              <li>Gerenciado por alguem</li>
               <li>Escopo global</li>
               <li>Lenta</li>
             </ul>
           </section>
+
           <section>
-            <h3>Diferenças</h3>
             <h4>Ruby</h4>
             <h5>Basicamente *tudo e alocado na Heap</h5>
+            </ br>
             <h4>Rust</h4>
-            <h5>Preferência para stack sobre heap</h5>
+            <h5>Basicamente tudo na Stack ou explicitamente alocado.</h5>
           </section>
+
+          <section>
+            <h4>A gente sabe que Ruby é lento, mas gente ama ele mesmo assim.</h4>
+            <h1> <3 </h1>
+          </section>
+
+          <section>
+            <h2>Porque?</h2>
+          </section>
+
+          <section>
+            <h4>Linguagem Interpretada</h4>
+            <img src="img/interpretedflow.png"></img>
+          </section>
+
+          <section>
+            <h4>Tokenizer</h4>
+            <img src="img/lexer1.png" height="150"></img>
+            <img src="img/lexer2.png" height="150"></img>
+            <img src="img/lexer3.png" height="150"></img>
+          </section>
+
+          <section>
+            <h4>Parse</h4>
+            <img src="img/parser.png"></img>
+          </section>
+
         </section>
 <!--Part2-->
         <section>
