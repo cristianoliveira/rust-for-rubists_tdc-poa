@@ -175,24 +175,58 @@ ruby examples/ruby/helloworld.rb  0.04s user 0.01s system 94% cpu 0.045 total
           </section>
 
           <section>
-            <h2>Porque?</h2>
+            <h2>Porque a diferença?</h2>
           </section>
 
           <section>
             <h4>Linguagem Interpretada</h4>
+            <img src="img/ruby.png"></img>
             <img src="img/interpretedflow.png"></img>
           </section>
 
           <section>
-            <h4>Tokenizer</h4>
+            <h4>1 - Tokenizer</h4>
             <img src="img/lexer1.png" height="150"></img>
             <img src="img/lexer2.png" height="150"></img>
             <img src="img/lexer3.png" height="150"></img>
           </section>
 
           <section>
-            <h4>Parse</h4>
-            <img src="img/parser.png"></img>
+            <h4>2 - Parse</h4>
+            <img src="img/ast.png"></img>
+          </section>
+
+          <section>
+            <h4>3 - Compile to bytecode</h4>
+                <pre><code class="lang-ruby">
+code = "2 * 7 + 3"
+puts RubyVM::InstructionSequence.compile(code).disassemble
+
+# == disasm: &lt;RubyVM::InstructionSequence:&lt;compiled&gt;@&lt;compiled&gt;&gt;==========
+# 0000 trace            1                                               (   1)
+# 0002 putobject        2
+# 0004 putobject        7
+# 0006 opt_mult         &lt;callinfo!mid:+, argc:1, ARGS_SIMPLE&gt;
+# 0008 putobject        3
+# 0010 opt_plus         &lt;callinfo!mid:+, argc:1, ARGS_SIMPLE&gt;
+# 0012 leave
+
+            </code></pre>
+          </section>
+
+          <section>
+            <h4>4 - Interpreta</h4>
+            <img src="img/interpreter.png"></img>
+          </section>
+
+          <section>
+            <h4>Rust</h4>
+            <img src="img/rust.png"></img>
+          </section>
+
+          <section>
+            <h4>Processo</h4>
+            <img src="img/compiler.png"></img>
           </section>
 
         </section>
