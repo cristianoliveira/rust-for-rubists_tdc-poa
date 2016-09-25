@@ -13,3 +13,7 @@ fn main() {
     take(&list); // ok
     add_one_to(&list);
 }
+
+// Running
+// cd examples/rust/
+// rustc borrowing.rs && ./borrowing

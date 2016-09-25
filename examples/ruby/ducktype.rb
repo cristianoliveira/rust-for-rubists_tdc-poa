@@ -19,3 +19,7 @@ hello(foo)
 
 bar = Bar.new
 hello(bar)
+
+# Running
+# cd examples/ruby/
+# ruby dicktype.rb
