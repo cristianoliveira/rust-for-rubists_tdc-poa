@@ -37,13 +37,12 @@ document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.se
       <!-- any section element inside of this container is displayed as a slide -->
       <div class="slides">
         <section>
-          <h1>Rust from ruby</h1> <h2>TDC - POA</h1>
+          <h1>Rust from Ruby</h1> <h2>TDC - POA</h1>
           <p>
           by <a href="http://cristianoliveira.net">Cristian Oliveira</a>
           </p>
-
           <p>
-          slides: <a href="https://github.com/cristianoliveira/rust-for-rubists_tdc-poa">github.com/cristianoliveira/rust-for-rubists_tdc-poa</a>
+          slides: <a href="https://github.com/cristianoliveira/rust-from-ruby">github.com/cristianoliveira/rust-from-ruby</a>
           </p>
         </section>
 
@@ -132,16 +131,41 @@ ruby examples/ruby/helloworld.rb  0.04s user 0.01s system 94% cpu 0.045 total
             <h5>Tentarei ensinar algo novo hoje! :)</h5>
           </section>
         </section>
+
         <section>
           <section>
-            <h1>Coisas que aprendi sobre Ruby aprendendo Rust</h1>
+            <h1>Ruby to Rust</h1>
           </section>
+
+          <section>
+            <h2>Variáveis</h2>
+            <h3>Ruby</h3>
+                <pre><code class="lang-ruby">
+x = "hello"
+                </code></pre>
+            <h3>Rust</h3>
+            <pre><code class="lang-rust">
+let x = "hello";
+            </code></pre>
+            <pre><code class="lang-rust">
+let x: i32 = 10;
+            </code></pre>
+          </section>
+
+
+          <section>
+            <h2>O que podemos aprender sobre Ruby aprendendo Rust</h2>
+          </section>
+
           <section>
             <h2>Me desculpem!</h2>
           </section>
+
           <section>
-            <h2>Temos que falar sobre Stack x Heap memory</h2>
+            <h3>Temos que falar sobre</h3>
+            <h2>Stack x Heap memory</h2>
           </section>
+
           <section>
             <h3>Stack memory</h3>
             <ul>
@@ -162,11 +186,22 @@ ruby examples/ruby/helloworld.rb  0.04s user 0.01s system 94% cpu 0.045 total
           </section>
 
           <section>
-            <h4>Ruby</h4>
-            <h5>Basicamente *tudo e alocado na Heap</h5>
-            </ br>
-            <h4>Rust</h4>
-            <h5>Basicamente tudo na Stack ou explicitamente alocado.</h5>
+            <h2>Gerênciamento de memoria</h2>
+            <div class="fragment" data-fragment-index="1">
+              <h3>Ruby</h3>
+              <ul>
+                <li>Basicamente *tudo e alocado na Heap</li>
+                <li>Com Garbage Collector</li>
+              </ul>
+            </div>
+            <br />
+            <div class="fragment" data-fragment-index="2" >
+              <h3>Rust</h3>
+              <ul>
+                <li>Basicamente tudo na Stack ou explicitamente alocado.</li>
+                <li>Sem Garbage Collector</li>
+              </ul>
+            </div>
           </section>
 
           <section>
@@ -176,6 +211,18 @@ ruby examples/ruby/helloworld.rb  0.04s user 0.01s system 94% cpu 0.045 total
 
           <section>
             <h2>Porque a diferença?</h2>
+          </section>
+
+          <section>
+                <pre><code class="lang-ruby">
+# code.rb
+2 * 7 + 3
+                </code></pre>
+                <pre><code class="lang-rust">
+fn main() -> i32 {
+    2 * 7 + 3
+}
+                </code></pre>
           </section>
 
           <section>
@@ -199,7 +246,10 @@ ruby examples/ruby/helloworld.rb  0.04s user 0.01s system 94% cpu 0.045 total
           <section>
             <h4>3 - Compile to bytecode</h4>
                 <pre><code class="lang-ruby">
-code = "2 * 7 + 3"
+# code.rb
+2 * 7 + 3
+                </code></pre>
+                <pre><code class="lang-ruby">
 puts RubyVM::InstructionSequence.compile(code).disassemble
 
 # == disasm: &lt;RubyVM::InstructionSequence:&lt;compiled&gt;@&lt;compiled&gt;&gt;==========
@@ -210,7 +260,6 @@ puts RubyVM::InstructionSequence.compile(code).disassemble
 # 0008 putobject        3
 # 0010 opt_plus         &lt;callinfo!mid:+, argc:1, ARGS_SIMPLE&gt;
 # 0012 leave
-
             </code></pre>
           </section>
 
@@ -222,80 +271,245 @@ puts RubyVM::InstructionSequence.compile(code).disassemble
           <section>
             <h4>Rust</h4>
             <img src="img/rust.png"></img>
+            <br />
+            <img src="img/rustaceanhappy.png" width="200"></img>
           </section>
 
           <section>
-            <h4>Processo</h4>
+            <h4>Compilada</h4>
             <img src="img/compiler.png"></img>
           </section>
 
-        </section>
-<!--Part2-->
-        <section>
           <section>
-            <h1>Mão a massa</h1>
-            <h4>online:</h4><p>https://play.rust-lang.org/</p>
-            <h4>instalar:</h4><p>https://www.rust-lang.org/en-US/downloads.html</p>
+            <h4>Mesmo código em Rust</h4>
+                <pre><code class="lang-rust">
+fn main() -> i32 {
+    2 * 7 + 3
+}
+                </code></pre>
+                <pre><code class="lang-bash">
+$ rustc code.rs
+                </code></pre>
+                <pre><code>
+// assembly  (Intel)
+push    rbp
+mov     rbp, rsp
+mov     eax, 17    // O QUE IMPORTA: move 17 para o registro de retorno
+pop     rbp        // recupera o valor da stack
+ret                // exit
+                </code></pre>
+                <pre><code class="lang-bash">
+$ ./code
+                </code></pre>
+
+
+                <small>http://rust.godbolt.org/</small><br />
+            <small>https://godbolt.org/g/wPfcb6</small>
           </section>
 
           <section>
-            <h4>Semelhanças</h4>
+            <h4>Ruby - Classes</h4>
+            <div style="float: left; width: 30%;">
+                <pre><code class="lang-ruby">
+class Foo
+  def hi
+    "Hello"
+  end
+end
 
-            <ul>
-              <li>Convenção para nome de variáveis
-                <pre><code class="lang-rust">let snake_case</code></pre></li>
-              <li>Blocks com '{}'
-              <pre><code class="lang-rust">while true { do_stuff() }</code></pre></li>
-              <li>Parece dinamicamente tipada, mas é inferência.
-              <pre><code class="lang-rust">let num = 0; let string = "a"; let s:str = "a";</code></pre></li>
-              <li>Não precisa de 'return' no fim do bloco.</li>
-            </ul>
+f = Foo.new
+f.hi
+                </code></pre>
+            </div>
+            <div>
+              <img src="img/rubymethodlookup.png"></img>
+            </div>
           </section>
-          <section>
-            <h4>Diferenças</h4>
-            <ul>
-              <li>O statement deve terminar com ';' menos o último.</li>
-              <li>'fn' no lugar de 'def'</li>
-              <li>Imutabilidade by default ou mutabilidade explicita!</li>
-              <li>Não tente enganar o compilador! Ele vai reclamar.</li>
-              <pre><code class="lang-rust">fn f(x){
-  let a = 0; // Imutable
-  let mut b = 1; // Mutable
-  b = a + 1; // Permitido
-  a = b + 1; // Erro! 
 
-  a + b + x // retorna o ultimo statement
-}</code></pre></li>
-            </ul>
-          </section>
           <section>
-            <h2>Bom e velho: Hello World</h2>
-            <h5>rust</h5>
-            <pre><code data-trim>
+            <h4>Rust - Strucs</h4>
+            <div style="float: left; width: 60%;">
+                <pre><code class="lang-rust">
+struct Foo;
+
+impl Foo {
+    pub fn hi(self) -> &str {
+        "Hello"
+    }
+}
+
 fn main() {
-    println!("Hello, world!");
+    let f = Foo;
+    f.hi();
+}
+                </code></pre>
+            </div>
+            <div style="font-size: 20px">
+              <h4>Compilando</h4>
+              <p>Gera cerca de 80 linhas de assembly</p>
+              <h4>Com otimização</h4>
+              <p>Gera 30 linhas == literalmente um programa vazio</p>
+            </div>
+          </section>
+
+          <section>
+            <h4>Ruby - Modules - Mixins</h4>
+              <pre><code class="lang-ruby">
+module Greeting
+  def hi
+    "bar"
+  end
+end
+
+class Foo
+  include Greeting
+end
+
+f = Foo.new
+f.hi
+            </code></pre>
+          </section>
+
+          <section>
+            <h4>Rust - Traits</h4>
+              <pre><code class="lang-rust">
+trait Greeting {
+    fn hi(&self) -> &str;
+}
+
+impl Greeting for Foo {
+    fn hi(&self) -> &str {
+        "hello"
+    }
+}
+
+fn main() {
+    let f = Foo;
+    f.hello();
+}
+              </code></pre>
+          </section>
+
+          <section>
+            <h4>Ruby - Ducktype</h4>
+            <div style="float: left; width: 50%;">
+              <pre><code class="lang-ruby">
+class Foo
+  def hi
+    "foo"
+  end
+end
+
+class Bar
+  def hi
+    "bar"
+  end
+end
+            </code></pre>
+            </div>
+            <div style="float: left; width: 50%;">
+              <pre><code class="lang-ruby">
+def hello(f)
+  puts f.hi
+end
+
+foo = Foo.new
+hello(foo)
+
+bar = Bar.new
+hello(bar)
+            </code></pre>
+            </div>
+          </section>
+
+          <section>
+            <h4>Rust - Generics</h4>
+            <div style="float: left; width: 50%;">
+              <pre><code class="lang-rust">
+struct Bar
+struct Foo
+
+trait Greeting {
+    fn hi(&self) -> &str;
+}
+
+impl Greeting for Foo {
+    fn hi(&self) -> &str {
+        "foo"
+    }
+}
+
+impl Greeting for Bar {
+    fn hi(&self) -> &str {
+        "bar"
+    }
+}
+
+              </code></pre>
+            </div>
+            <div style="float: left; width: 50%;">
+              <pre><code class="lang-rust">
+fn hello&lt;T: Greeting&gt;(f: T) {
+    println!("{}", f.hi());
+}
+
+fn main() {
+    let bar = Bar;
+    hello(bar);
+
+    let foo = Foo;
+    hello(foo);
+}
+              </code></pre>
+            </div>
+          </section>
+
+          <section>
+            <h2>Legal Rust nem parece uma linguagem de baixo nível, como pode
+              ser thread safety?</h2>
+          </section>
+
+          <section>
+            <h2>O segredo do Rust é seu sistema</h2>
+            <h4>Ownership</h4>
+            <pre><code class="lang-rust">
+fn take(list: Vec&lt;i32&gt;) {
+    println!("first: {}", list[0]);
+}
+
+fn main() {
+    let list = vec![10, 5, 4];
+    take(list); // ok
+    take(list); // Error use of moved value: `list`
 }
             </code></pre>
-            <pre><code data-trim>
-$ rustc examples/rust/helloworld.rs && ./helloworld
-            </code></pre>
-            <h5>ruby</h5>
-            <pre><code data-trim>
-    puts "Hello, world!"
-            </code></pre>
-            <pre><code data-trim>
-$ ruby examples/rust/helloworld.rb
+          </section>
+
+          <section>
+            <h4>Borrowing</h4>
+              <pre><code class="lang-rust">
+fn take(list: &Vec&lt;i32&gt;) {
+    println!("first: {}", list[0]);
+}
+
+fn main() {
+    let list = vec![10, 5, 4];
+    take(&list); // ok
+    take(&list); // ok
+}
             </code></pre>
           </section>
+        </section>
+<!--END-->
+        <section>
           <section>
-            <h2>Cargo:</h2>
-            <h4>the package manager and build tool</h4>
-            <p>'Hello world' com cargo:</p>
-            <pre><code data-trim>
-~$ cargo new helloword --bin
-~$ cd helloword/ 
-helloword$ cargo run
-            </code></pre>
+            <img src="img/flexperf.jpg" >
+          </section>
+          <section>
+            <img id="dealwithit" onclick="deal" src="img/ruby_rust.jpg"></img>
+          </section>
+          <section>
+            <h1>Muito Obrigado</h1>
           </section>
         </section>
       </div>
@@ -313,6 +527,7 @@ Reveal.initialize({
   progress: true,
   history: true,
   center: true,
+  viewDistance: 1,
 
   theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
   transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
@@ -334,7 +549,11 @@ Reveal.initialize({
   // ]
 });
 
-    </script>
+function deal() {
+  document.getElementById('dealwithit').src = "img/dealwithit.gif";
+}
 
+document.getElementById('dealwithit').addEventListener('click', deal);
+    </script>
   </body>
 </html>
