@@ -1,5 +1,5 @@
 [package]
-name = "for-rubists-server"
+name = "rust-from-ruby-server"
 version = "0.1.0"
 authors = ["Cristian Oliveira <contato@cristianoliveira.com.br>"]
 
