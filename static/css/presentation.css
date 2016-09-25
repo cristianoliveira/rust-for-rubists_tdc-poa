@@ -1,0 +1,24 @@
+.reveal .slides>section>section.ruby {
+  background-image: url("../img/ruby.png");
+  background-repeat: no-repeat;
+}
+
+.ruby-logo {
+  float: left;
+  width: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.rust-logo {
+  float: right;
+  width: 100px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.small-logo {
+  width: 50px;
+}

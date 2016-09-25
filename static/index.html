@@ -20,6 +20,7 @@
     <!-- for syntax highlighting -->
     <link rel="stylesheet" href="lib/css/solarized-dark.css">
 
+    <link rel="stylesheet" href="css/presentation.css">
     <!--[if lt ie 9]>
       <script src="lib/js/html5shiv.js"></script>
       <![endif]-->
@@ -129,12 +130,16 @@ ruby examples/ruby/helloworld.rb  0.04s user 0.01s system 94% cpu 0.045 total
 
         <section>
           <section>
+            <img class="ruby-logo" src="img/ruby.png"></img>
+            <img class="rust-logo" src="img/rust.png"></img>
             <h1>Ruby to Rust</h1>
             <p>O que podemos aprender sobre Ruby.</p>
           </section>
 
           <section>
             <h2>Variáveis</h2>
+            <img class="ruby-logo small-logo" src="img/ruby.png"></img>
+            <img class="rust-logo small-logo" src="img/rust.png"></img>
             <h3>Ruby</h3>
                 <pre><code class="lang-ruby">
 x = "hello"
@@ -182,8 +187,9 @@ let x: i32 = 10;
           </section>
 
           <section>
-            <h2>Gerênciamento de memoria</h2>
+            <h3>Gerênciamento de memoria</h3>
             <div class="fragment" data-fragment-index="1">
+            <img class="ruby-logo small-logo" src="img/ruby.png"></img>
               <h3>Ruby</h3>
               <ul>
                 <li>Basicamente *tudo e alocado na Heap</li>
@@ -192,6 +198,7 @@ let x: i32 = 10;
             </div>
             <br />
             <div class="fragment" data-fragment-index="2" >
+            <img class="rust-logo small-logo" src="img/rust.png"></img>
               <h3>Rust</h3>
               <ul>
                 <li>Basicamente tudo na Stack ou explicitamente alocado.</li>
@@ -201,8 +208,11 @@ let x: i32 = 10;
           </section>
 
           <section>
-            <h4>A gente sabe que Ruby é lento, mas gente ama ele mesmo assim.</h4>
-            <h1> <3 </h1>
+            <img class="ruby-logo small-logo" src="img/ruby.png"></img>
+            <div>
+              <h4>Ruby é lento, mas gente ama ele mesmo assim.</h4>
+              <h1> <3 </h1>
+            </div>
           </section>
 
           <section>
@@ -210,6 +220,8 @@ let x: i32 = 10;
           </section>
 
           <section>
+            <img class="ruby-logo small-logo" src="img/ruby.png"></img>
+            <img class="rust-logo small-logo" src="img/rust.png"></img>
                 <pre><code class="lang-ruby">
 # code.rb
 2 * 7 + 3
@@ -222,12 +234,13 @@ fn main() -> i32 {
           </section>
 
           <section>
-            <h4>Linguagem Interpretada</h4>
-            <img src="img/ruby.png"></img>
+            <img class="ruby-logo small-logo" src="img/ruby.png"></img>
+            <h3>Ruby</h3>
             <img src="img/interpretedflow.png"></img>
           </section>
 
           <section>
+            <img class="ruby-logo small-logo" src="img/ruby.png"></img>
             <h4>1 - Tokenizer</h4>
             <img src="img/lexer1.png" height="150"></img>
             <img src="img/lexer2.png" height="150"></img>
@@ -235,12 +248,14 @@ fn main() -> i32 {
           </section>
 
           <section>
+            <img class="ruby-logo small-logo" src="img/ruby.png"></img>
             <h4>2 - Parse</h4>
             <img src="img/ast.png"></img>
           </section>
 
           <section>
-            <h4>3 - Compile to bytecode</h4>
+            <img class="ruby-logo small-logo" src="img/ruby.png"></img>
+            <h4>3 - Compile para byte code</h4>
                 <pre><code class="lang-ruby">
 # code.rb
 2 * 7 + 3
@@ -260,50 +275,53 @@ puts RubyVM::InstructionSequence.compile(code).disassemble
           </section>
 
           <section>
+            <img class="ruby-logo small-logo" src="img/ruby.png"></img>
             <h4>4 - Interpreta</h4>
             <img src="img/interpreter.png"></img>
           </section>
 
           <section>
+            <img class="rust-logo small-logo" src="img/rust.png"></img>
             <h4>Rust</h4>
-            <img src="img/rust.png"></img>
-            <br />
             <img src="img/rustaceanhappy.png" width="200"></img>
           </section>
 
           <section>
+            <img class="rust-logo small-logo" src="img/rust.png"></img>
             <h4>Compilada</h4>
             <img src="img/compiler.png"></img>
           </section>
 
           <section>
+            <img class="rust-logo small-logo" src="img/rust.png"></img>
             <h4>Mesmo código em Rust</h4>
-                <pre><code class="lang-rust">
+            <pre><code class="lang-rust">
 fn main() -> i32 {
     2 * 7 + 3
 }
-                </code></pre>
-                <pre><code class="lang-bash">
+            </code></pre>
+            <pre><code class="lang-bash">
 $ rustc code.rs
-                </code></pre>
-                <pre><code>
+            </code></pre>
+            <pre><code>
 // assembly  (Intel)
 push    rbp
 mov     rbp, rsp
 mov     eax, 17    // O QUE IMPORTA: move 17 para o registro de retorno
 pop     rbp        // recupera o valor da stack
 ret                // exit
-                </code></pre>
-                <pre><code class="lang-bash">
+            </code></pre>
+            <pre><code class="lang-bash">
 $ ./code
-                </code></pre>
+            </code></pre>
 
 
-                <small>http://rust.godbolt.org/</small><br />
+            <small>http://rust.godbolt.org/</small><br />
             <small>https://godbolt.org/g/wPfcb6</small>
           </section>
 
           <section>
+            <img class="ruby-logo small-logo" src="img/ruby.png"></img>
             <h4>Ruby - Classes</h4>
             <div style="float: left; width: 30%;">
                 <pre><code class="lang-ruby">
@@ -323,6 +341,7 @@ f.hi
           </section>
 
           <section>
+            <img class="rust-logo small-logo" src="img/rust.png"></img>
             <h4>Rust - Strucs</h4>
             <div style="float: left; width: 60%;">
                 <pre><code class="lang-rust">
@@ -349,6 +368,7 @@ fn main() {
           </section>
 
           <section>
+            <img class="ruby-logo small-logo" src="img/ruby.png"></img>
             <h4>Ruby - Modules - Mixins</h4>
               <pre><code class="lang-ruby">
 module Greeting
@@ -367,6 +387,7 @@ f.hi
           </section>
 
           <section>
+            <img class="rust-logo small-logo" src="img/rust.png"></img>
             <h4>Rust - Traits</h4>
               <pre><code class="lang-rust">
 trait Greeting {
@@ -387,6 +408,7 @@ fn main() {
           </section>
 
           <section>
+            <img class="ruby-logo small-logo" src="img/ruby.png"></img>
             <h4>Ruby - Ducktype</h4>
             <div style="float: left; width: 50%;">
               <pre><code class="lang-ruby">
@@ -404,6 +426,7 @@ end
             </code></pre>
             </div>
             <div style="float: left; width: 50%;">
+            <img class="ruby-logo small-logo" src="img/ruby.png"></img>
               <pre><code class="lang-ruby">
 def hello(f)
   puts f.hi
@@ -419,6 +442,7 @@ hello(bar)
           </section>
 
           <section>
+            <img class="rust-logo small-logo" src="img/rust.png"></img>
             <h4>Rust - Generics</h4>
             <div style="float: left; width: 50%;">
               <pre><code class="lang-rust">
@@ -461,11 +485,13 @@ fn main() {
           </section>
 
           <section>
+            <img class="rust-logo small-logo" src="img/rust.png"></img>
             <h2>Legal Rust nem parece uma linguagem de baixo nível, como pode
               ser thread safety?</h2>
           </section>
 
           <section>
+            <img class="rust-logo small-logo" src="img/rust.png"></img>
             <h2>O segredo do Rust é seu sistema</h2>
             <h4>Ownership</h4>
             <pre><code class="lang-rust">
@@ -530,9 +556,6 @@ Reveal.initialize({
 
     // Optional libraries used to extend on reveal.js
   dependencies: [
-    { src: 'plugin/markdown/marked.js' },
-    { src: 'plugin/markdown/markdown.js' },
-    { src: 'plugin/notes/notes.js', async: true },
     { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
   ]
   // dependencies: [
