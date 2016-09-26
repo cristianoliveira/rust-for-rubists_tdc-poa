@@ -3,6 +3,10 @@
   background-repeat: no-repeat;
 }
 
+.reveal .slides section .fragment.fade-out.visible {
+  display: none;
+}
+
 .ruby-logo {
   float: left;
   width: 100px;
@@ -21,4 +25,8 @@
 
 .small-logo {
   width: 50px;
+}
+
+.reveal section .ferris {
+  border: none;
 }

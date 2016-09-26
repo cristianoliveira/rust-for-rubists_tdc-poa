@@ -1,8 +1,8 @@
-words = ["Hello", "World", "From", "Ruby"]
-# words.push(" lol ")
-#
+words = ["Hello", "world", "From", "Ruby"]
+
 words.map do |w|
   Thread.new do
+    words.push(" lol ")
     puts "#{w}"
   end.join()
 end

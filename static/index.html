@@ -43,17 +43,18 @@
         </section>
 
         <section>
+        <!-- MotivationPart -->
           <section>
             <h2>Sobre a linguagem</h2>
-            <p>Rust é uma linguagem extremamente rápida de tipagem estática que garante 
-            operações memory safety e concorrência sem condições de corrida.</p>
+            <p>Rust é uma linguagem compilada, extremamente rápida, de tipagem estática e que 
+              foi projetada para garantir segurança, concorrência de forma prática</p>
           </section>
 
           <section>
             <h3>Legal mas:</h3>
             <ul>
               <li>Eu já programo em ruby</li>
-              <li>Ruby paga minhas contas</li>
+              <li>Ruby paga as minhas contas</li>
               <li>Eu gosto de ruby</li>
             </ul>
           </section>
@@ -126,91 +127,39 @@ ruby examples/ruby/helloworld.rb  0.04s user 0.01s system 94% cpu 0.045 total
             <p>Você pode aprender muito como Ruby funciona através do Rust</p>
             <h5>Tentarei ensinar algo novo hoje! :)</h5>
           </section>
+        <!-- MotivationPartEnd -->
+        </section>
+
+      <section>
+        <!-- ExplanationPart -->
+        <section>
+          <img class="ruby-logo" src="img/ruby.png"></img>
+          <img class="rust-logo" src="img/rust.png"></img>
+          <h1>Ruby to Rust</h1>
         </section>
 
         <section>
-          <section>
-            <img class="ruby-logo" src="img/ruby.png"></img>
-            <img class="rust-logo" src="img/rust.png"></img>
-            <h1>Ruby to Rust</h1>
-            <p>O que podemos aprender sobre Ruby.</p>
-          </section>
-
-          <section>
-            <h2>Variáveis</h2>
-            <img class="ruby-logo small-logo" src="img/ruby.png"></img>
-            <img class="rust-logo small-logo" src="img/rust.png"></img>
-            <h3>Ruby</h3>
-                <pre><code class="lang-ruby">
-x = "hello"
-                </code></pre>
-            <h3>Rust</h3>
-            <pre><code class="lang-rust">
-let x = "hello";
-            </code></pre>
-            <pre><code class="lang-rust">
-let x: i32 = 10;
-            </code></pre>
-          </section>
-
-
-          <section>
-            <h2>Memória</h2>
-          </section>
-
-          <section>
-            <h2>Me desculpem!</h2>
-          </section>
-
-          <section>
-            <h3>Temos que falar sobre</h3>
-            <h2>Stack x Heap memory</h2>
-          </section>
-
-          <section>
-            <h3>Stack memory</h3>
-            <ul>
-              <li>Gerenciada e otimizada pela CPU</li>
-              <li>Escopo local</li>
-              <li>Extremamente Rápida</li>
-              <li>Limitada</li>
-            </ul>
-          </section>
-
-          <section>
-            <h3>Heap memory</h3>
-            <ul>
-              <li>Gerenciado por alguem</li>
-              <li>Escopo global</li>
-              <li>Lenta</li>
-            </ul>
-          </section>
-
-          <section>
-            <h3>Gerênciamento de memoria</h3>
-            <div class="fragment" data-fragment-index="1">
-            <img class="ruby-logo small-logo" src="img/ruby.png"></img>
-              <h3>Ruby</h3>
-              <ul>
-                <li>Basicamente *tudo e alocado na Heap</li>
-                <li>Com Garbage Collector</li>
-              </ul>
-            </div>
-            <br />
-            <div class="fragment" data-fragment-index="2" >
-            <img class="rust-logo small-logo" src="img/rust.png"></img>
-              <h3>Rust</h3>
-              <ul>
-                <li>Basicamente tudo na Stack ou explicitamente alocado.</li>
-                <li>Sem Garbage Collector</li>
-              </ul>
-            </div>
-          </section>
+          <img class="ruby-logo small-logo" src="img/ruby.png"></img>
+          <img class="rust-logo small-logo" src="img/rust.png"></img>
+          <h3>Semelhanças</h3>
+          <pre><code class="lang-ruby">
+words = ["Hello", "world", "from", "Ruby"]
+words.each { |w| puts w }
+          </code></pre>
+          <pre><code class="lang-rust">
+fn main() {
+    let words = vec!["hello","word", "from", "Rust"];
+    for w in words {
+        println!("{} ", w)
+    }
+}
+          </code></pre>
+        </section>
 
           <section>
             <img class="ruby-logo small-logo" src="img/ruby.png"></img>
             <div>
-              <h4>Ruby é lento, mas gente ama ele mesmo assim.</h4>
+              <h4>Ruby é lento, mas a gente ama ele mesmo assim.</h4>
               <h1> <3 </h1>
             </div>
           </section>
@@ -222,6 +171,7 @@ let x: i32 = 10;
           <section>
             <img class="ruby-logo small-logo" src="img/ruby.png"></img>
             <img class="rust-logo small-logo" src="img/rust.png"></img>
+            <h3>Como eles executam isso?</h3>
                 <pre><code class="lang-ruby">
 # code.rb
 2 * 7 + 3
@@ -282,8 +232,8 @@ puts RubyVM::InstructionSequence.compile(code).disassemble
 
           <section>
             <img class="rust-logo small-logo" src="img/rust.png"></img>
-            <h4>Rust</h4>
-            <img src="img/rustaceanhappy.png" width="200"></img>
+            <h3>Rust</h3>
+            <img class="ferris" src="img/rustaceanhappy.png" width="200"></img>
           </section>
 
           <section>
@@ -305,10 +255,10 @@ $ rustc code.rs
             </code></pre>
             <pre><code>
 // assembly  (Intel)
-push    rbp
+push    rbp        // bla bla bla stack suff
 mov     rbp, rsp
 mov     eax, 17    // O QUE IMPORTA: move 17 para o registro de retorno
-pop     rbp        // recupera o valor da stack
+pop     rbp
 ret                // exit
             </code></pre>
             <pre><code class="lang-bash">
@@ -402,7 +352,7 @@ impl Greeting for Foo {
 
 fn main() {
     let f = Foo;
-    f.hello();
+    f.hi();
 }
               </code></pre>
           </section>
@@ -484,45 +434,74 @@ fn main() {
             </div>
           </section>
 
-          <section>
-            <img class="rust-logo small-logo" src="img/rust.png"></img>
-            <h2>Legal Rust nem parece uma linguagem de baixo nível, como pode
-              ser thread safety?</h2>
+        <section>
+          <h2>Vale a pena aprender Rust</h2>
+          <h4>Ele faz você ver as coisas de outro modo.</h4>
+        </section>
+
+        <section>
+          <h3>Concorrência</h3>
+          <img class="ruby-logo small-logo" src="img/ruby.png"></img>
+          <pre class="fragment fade-out"><code class="lang-ruby">
+words = ["Hello", "world", "from", "Ruby"]
+
+words.map do |w|
+  Thread.new do
+    puts "#{w}"
+  end.join()
+end
+            </code></pre>
+            <pre class="fragment fade-up"><code class="lang-ruby">
+words = ["Hello", "world", "from", "Ruby"]
+
+words.map do |w|
+  Thread.new do
+    words.push(" lol ")
+    puts "#{w}"
+  end.join()
+end
+            </code></pre>
           </section>
 
           <section>
             <img class="rust-logo small-logo" src="img/rust.png"></img>
             <h2>O segredo do Rust é seu sistema</h2>
+            <h4>Ownership, Borrowing e Lifetime</h4>
+          </section>
+
+          <section>
+            <img class="rust-logo small-logo" src="img/rust.png"></img>
             <h4>Ownership</h4>
             <pre><code class="lang-rust">
-fn take(list: Vec&lt;i32&gt;) {
-    println!("first: {}", list[0]);
-}
-
 fn main() {
-    let list = vec![10, 5, 4];
-    take(list); // ok
-    take(list); // Error use of moved value: `list`
+    let a = vec![10, 5, 4];
+    let b = a; // Transfere o owner
+    let c = b; // Transfere o owner
+
+    println!("{:?}", a); // ERRROUUU (Fausto Silva Voice)
+    println!("{:?}", c); // único valido
 }
             </code></pre>
           </section>
 
           <section>
-            <h4>Borrowing</h4>
+            <h4>Borrowing e Lifetime</h4>
               <pre><code class="lang-rust">
-fn take(list: &Vec&lt;i32&gt;) {
-    println!("first: {}", list[0]);
-}
-
 fn main() {
-    let list = vec![10, 5, 4];
-    take(&list); // ok
-    take(&list); // ok
-}
+    let a = vec![10, 5, 4]; // a (owner) entra no scopo
+    let b = &a; // Empresta
+    let c = &b; // Empresta
+
+    println!("{:?}", a); // Ok
+    println!("{:?}", b); // Ok
+    println!("{:?}", c); // Ok
+} // todas saem do scopo
             </code></pre>
           </section>
+
+        <!-- ExplanationPartEnd -->
         </section>
-<!--END-->
+
         <section>
           <section>
             <img src="img/flexperf.jpg" >
@@ -558,14 +537,6 @@ Reveal.initialize({
   dependencies: [
     { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
   ]
-  // dependencies: [
-  // { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-  // { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-  // { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-  //   { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-  //   { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-  //     { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
-  // ]
 });
 
 function deal() {

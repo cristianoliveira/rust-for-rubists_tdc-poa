@@ -25,3 +25,7 @@ fn main() {
     hello(Bar);
     hello(Foo);
 }
+
+// Running
+// cd examples/rust/
+// rustc generics.rs && ./generics
