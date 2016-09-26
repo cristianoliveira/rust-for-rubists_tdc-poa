@@ -277,9 +277,9 @@ $ ./code
           <div style="float: left; width: 30%;">
               <pre><code class="lang-ruby">
 class Foo
-def hi
-  "Hello"
-end
+  def hi
+    "Hello"
+  end
 end
 
 f = Foo.new
@@ -323,9 +323,9 @@ fn main() {
           <h4>Ruby - Modules - Mixins</h4>
             <pre><code class="lang-ruby">
 module Greeting
-def hi
-  "bar"
-end
+  def hi
+    "bar"
+  end
 end
 
 class Foo
@@ -364,15 +364,15 @@ fn main() {
           <div style="float: left; width: 50%;">
             <pre><code class="lang-ruby">
 class Foo
-def hi
-  "foo"
-end
+  def hi
+    "foo"
+  end
 end
 
 class Bar
-def hi
-  "bar"
-end
+  def hi
+    "bar"
+  end
 end
           </code></pre>
           </div>
@@ -380,7 +380,7 @@ end
           <img class="ruby-logo small-logo" src="img/ruby.png"></img>
             <pre><code class="lang-ruby">
 def hello(f)
-puts f.hi
+  puts f.hi
 end
 
 foo = Foo.new
@@ -447,19 +447,19 @@ fn main() {
 words = ["Hello", "world", "from", "Ruby"]
 
 words.map do |w|
-Thread.new do
-  puts "#{w}"
-end.join()
+  Thread.new do
+    puts "#{w}"
+  end.join()
 end
           </code></pre>
           <pre class="fragment fade-up"><code class="lang-ruby">
 words = ["Hello", "world", "from", "Ruby"]
 
 words.map do |w|
-Thread.new do
-  words.push(" lol ")
-  puts "#{w}"
-end.join()
+  Thread.new do
+    words.push(" lol ")
+    puts "#{w}"
+  end.join()
 end
           </code></pre>
           <pre class="fragment fade-up"><code class="lang-rust">
