@@ -156,61 +156,62 @@ fn main() {
           </code></pre>
         </section>
 
-          <section>
-            <img class="ruby-logo small-logo" src="img/ruby.png"></img>
-            <div>
-              <h4>Ruby é lento, mas a gente ama ele mesmo assim.</h4>
-              <h1> <3 </h1>
-            </div>
-          </section>
+        <section>
+          <img class="ruby-logo small-logo" src="img/ruby.png"></img>
+          <div>
+            <h4>Ruby é lento, mas a gente ama ele mesmo assim.</h4>
+            <h1> <3 </h1>
+          </div>
+        </section>
 
-          <section>
-            <h2>Porque a diferença?</h2>
-          </section>
+        <section>
+          <h2>Porque a diferença?</h2>
+          <h4>O que a gente pode aprender sobre Ruby através do Rust</h4>
+        </section>
 
-          <section>
-            <img class="ruby-logo small-logo" src="img/ruby.png"></img>
-            <img class="rust-logo small-logo" src="img/rust.png"></img>
-            <h3>Como eles executam isso?</h3>
-                <pre><code class="lang-ruby">
+        <section>
+          <img class="ruby-logo small-logo" src="img/ruby.png"></img>
+          <img class="rust-logo small-logo" src="img/rust.png"></img>
+          <h3>Como eles executam isso?</h3>
+              <pre><code class="lang-ruby">
 # code.rb
 2 * 7 + 3
-                </code></pre>
-                <pre><code class="lang-rust">
+              </code></pre>
+              <pre><code class="lang-rust">
 fn main() -> i32 {
-    2 * 7 + 3
+  2 * 7 + 3
 }
-                </code></pre>
-          </section>
+              </code></pre>
+        </section>
 
-          <section>
-            <img class="ruby-logo small-logo" src="img/ruby.png"></img>
-            <h3>Ruby</h3>
-            <img src="img/interpretedflow.png"></img>
-          </section>
+        <section>
+          <img class="ruby-logo small-logo" src="img/ruby.png"></img>
+          <h3>Ruby</h3>
+          <img src="img/interpretedflow.png"></img>
+        </section>
 
-          <section>
-            <img class="ruby-logo small-logo" src="img/ruby.png"></img>
-            <h4>1 - Tokenizer</h4>
-            <img src="img/lexer1.png" height="150"></img>
-            <img src="img/lexer2.png" height="150"></img>
-            <img src="img/lexer3.png" height="150"></img>
-          </section>
+        <section>
+          <img class="ruby-logo small-logo" src="img/ruby.png"></img>
+          <h4>1 - Tokenizer</h4>
+          <img src="img/lexer1.png" height="150"></img>
+          <img src="img/lexer2.png" height="150"></img>
+          <img src="img/lexer3.png" height="150"></img>
+        </section>
 
-          <section>
-            <img class="ruby-logo small-logo" src="img/ruby.png"></img>
-            <h4>2 - Parse</h4>
-            <img src="img/ast.png"></img>
-          </section>
+        <section>
+          <img class="ruby-logo small-logo" src="img/ruby.png"></img>
+          <h4>2 - Parse</h4>
+          <img src="img/ast.png"></img>
+        </section>
 
-          <section>
-            <img class="ruby-logo small-logo" src="img/ruby.png"></img>
-            <h4>3 - Compile para byte code</h4>
-                <pre><code class="lang-ruby">
+        <section>
+          <img class="ruby-logo small-logo" src="img/ruby.png"></img>
+          <h4>3 - Compile para byte code</h4>
+              <pre><code class="lang-ruby">
 # code.rb
 2 * 7 + 3
-                </code></pre>
-                <pre><code class="lang-ruby">
+              </code></pre>
+              <pre><code class="lang-ruby">
 puts RubyVM::InstructionSequence.compile(code).disassemble
 
 # == disasm: &lt;RubyVM::InstructionSequence:&lt;compiled&gt;@&lt;compiled&gt;&gt;==========
@@ -221,165 +222,165 @@ puts RubyVM::InstructionSequence.compile(code).disassemble
 # 0008 putobject        3
 # 0010 opt_plus         &lt;callinfo!mid:+, argc:1, ARGS_SIMPLE&gt;
 # 0012 leave
-            </code></pre>
-          </section>
+          </code></pre>
+        </section>
 
-          <section>
-            <img class="ruby-logo small-logo" src="img/ruby.png"></img>
-            <h4>4 - Interpreta</h4>
-            <img src="img/interpreter.png"></img>
-          </section>
+        <section>
+          <img class="ruby-logo small-logo" src="img/ruby.png"></img>
+          <h4>4 - Interpreta</h4>
+          <img src="img/interpreter.png"></img>
+        </section>
 
-          <section>
-            <img class="rust-logo small-logo" src="img/rust.png"></img>
-            <h3>Rust</h3>
-            <img class="ferris" src="img/rustaceanhappy.png" width="200"></img>
-          </section>
+        <section>
+          <img class="rust-logo small-logo" src="img/rust.png"></img>
+          <h3>Rust</h3>
+          <img class="ferris" src="img/rustaceanhappy.png" width="200"></img>
+        </section>
 
-          <section>
-            <img class="rust-logo small-logo" src="img/rust.png"></img>
-            <h4>Compilada</h4>
-            <img src="img/compiler.png"></img>
-          </section>
+        <section>
+          <img class="rust-logo small-logo" src="img/rust.png"></img>
+          <h4>Compilada</h4>
+          <img src="img/compiler.png"></img>
+        </section>
 
-          <section>
-            <img class="rust-logo small-logo" src="img/rust.png"></img>
-            <h4>Mesmo código em Rust</h4>
-            <pre><code class="lang-rust">
+        <section>
+          <img class="rust-logo small-logo" src="img/rust.png"></img>
+          <h4>Mesmo código em Rust</h4>
+          <pre><code class="lang-rust">
 fn main() -> i32 {
-    2 * 7 + 3
+  2 * 7 + 3
 }
-            </code></pre>
-            <pre><code class="lang-bash">
+          </code></pre>
+          <pre><code class="lang-bash">
 $ rustc code.rs
-            </code></pre>
-            <pre><code>
+          </code></pre>
+          <pre><code>
 // assembly  (Intel)
 push    rbp        // bla bla bla stack suff
 mov     rbp, rsp
 mov     eax, 17    // O QUE IMPORTA: move 17 para o registro de retorno
 pop     rbp
 ret                // exit
-            </code></pre>
-            <pre><code class="lang-bash">
+          </code></pre>
+          <pre><code class="lang-bash">
 $ ./code
-            </code></pre>
+          </code></pre>
 
 
-            <small>http://rust.godbolt.org/</small><br />
-            <small>https://godbolt.org/g/wPfcb6</small>
-          </section>
+          <small>http://rust.godbolt.org/</small><br />
+          <small>https://godbolt.org/g/wPfcb6</small>
+        </section>
 
-          <section>
-            <img class="ruby-logo small-logo" src="img/ruby.png"></img>
-            <h4>Ruby - Classes</h4>
-            <div style="float: left; width: 30%;">
-                <pre><code class="lang-ruby">
+        <section>
+          <img class="ruby-logo small-logo" src="img/ruby.png"></img>
+          <h4>Ruby - Classes</h4>
+          <div style="float: left; width: 30%;">
+              <pre><code class="lang-ruby">
 class Foo
-  def hi
-    "Hello"
-  end
+def hi
+  "Hello"
+end
 end
 
 f = Foo.new
 f.hi
-                </code></pre>
-            </div>
-            <div>
-              <img src="img/rubymethodlookup.png"></img>
-            </div>
-          </section>
+              </code></pre>
+          </div>
+          <div>
+            <img src="img/rubymethodlookup.png"></img>
+          </div>
+        </section>
 
-          <section>
-            <img class="rust-logo small-logo" src="img/rust.png"></img>
-            <h4>Rust - Strucs</h4>
-            <div style="float: left; width: 60%;">
-                <pre><code class="lang-rust">
+        <section>
+          <img class="rust-logo small-logo" src="img/rust.png"></img>
+          <h4>Rust - Strucs</h4>
+          <div style="float: left; width: 60%;">
+              <pre><code class="lang-rust">
 struct Foo;
 
 impl Foo {
-    pub fn hi(self) -> &str {
-        "Hello"
-    }
+  pub fn hi(self) -> &str {
+      "Hello"
+  }
 }
 
 fn main() {
-    let f = Foo;
-    f.hi();
+  let f = Foo;
+  f.hi();
 }
-                </code></pre>
-            </div>
-            <div style="font-size: 20px">
-              <h4>Compilando</h4>
-              <p>Gera cerca de 80 linhas de assembly</p>
-              <h4>Com otimização</h4>
-              <p>Gera 30 linhas == literalmente um programa vazio</p>
-            </div>
-          </section>
+              </code></pre>
+          </div>
+          <div style="font-size: 20px">
+            <h4>Compilando</h4>
+            <p>Gera cerca de 80 linhas de assembly</p>
+            <h4>Com otimização</h4>
+            <p>Gera 30 linhas == literalmente um programa vazio</p>
+          </div>
+        </section>
 
-          <section>
-            <img class="ruby-logo small-logo" src="img/ruby.png"></img>
-            <h4>Ruby - Modules - Mixins</h4>
-              <pre><code class="lang-ruby">
+        <section>
+          <img class="ruby-logo small-logo" src="img/ruby.png"></img>
+          <h4>Ruby - Modules - Mixins</h4>
+            <pre><code class="lang-ruby">
 module Greeting
-  def hi
-    "bar"
-  end
+def hi
+  "bar"
+end
 end
 
 class Foo
-  include Greeting
+include Greeting
 end
 
 f = Foo.new
 f.hi
-            </code></pre>
-          </section>
+          </code></pre>
+        </section>
 
-          <section>
-            <img class="rust-logo small-logo" src="img/rust.png"></img>
-            <h4>Rust - Traits</h4>
-              <pre><code class="lang-rust">
+        <section>
+          <img class="rust-logo small-logo" src="img/rust.png"></img>
+          <h4>Rust - Traits</h4>
+            <pre><code class="lang-rust">
 trait Greeting {
-    fn hi(&self) -> &str;
+  fn hi(&self) -> &str;
 }
 
 impl Greeting for Foo {
-    fn hi(&self) -> &str {
-        "hello"
-    }
+  fn hi(&self) -> &str {
+      "hello"
+  }
 }
 
 fn main() {
-    let f = Foo;
-    f.hi();
+  let f = Foo;
+  f.hi();
 }
-              </code></pre>
-          </section>
+            </code></pre>
+        </section>
 
-          <section>
-            <img class="ruby-logo small-logo" src="img/ruby.png"></img>
-            <h4>Ruby - Ducktype</h4>
-            <div style="float: left; width: 50%;">
-              <pre><code class="lang-ruby">
+        <section>
+          <img class="ruby-logo small-logo" src="img/ruby.png"></img>
+          <h4>Ruby - Ducktype</h4>
+          <div style="float: left; width: 50%;">
+            <pre><code class="lang-ruby">
 class Foo
-  def hi
-    "foo"
-  end
+def hi
+  "foo"
+end
 end
 
 class Bar
-  def hi
-    "bar"
-  end
+def hi
+  "bar"
 end
-            </code></pre>
-            </div>
-            <div style="float: left; width: 50%;">
-            <img class="ruby-logo small-logo" src="img/ruby.png"></img>
-              <pre><code class="lang-ruby">
+end
+          </code></pre>
+          </div>
+          <div style="float: left; width: 50%;">
+          <img class="ruby-logo small-logo" src="img/ruby.png"></img>
+            <pre><code class="lang-ruby">
 def hello(f)
-  puts f.hi
+puts f.hi
 end
 
 foo = Foo.new
@@ -387,117 +388,131 @@ hello(foo)
 
 bar = Bar.new
 hello(bar)
-            </code></pre>
-            </div>
-          </section>
+          </code></pre>
+          </div>
+        </section>
 
-          <section>
-            <img class="rust-logo small-logo" src="img/rust.png"></img>
-            <h4>Rust - Generics</h4>
-            <div style="float: left; width: 50%;">
-              <pre><code class="lang-rust">
+        <section>
+          <img class="rust-logo small-logo" src="img/rust.png"></img>
+          <h4>Rust - Generics</h4>
+          <div style="float: left; width: 50%;">
+            <pre><code class="lang-rust">
 struct Bar
 struct Foo
 
 trait Greeting {
-    fn hi(&self) -> &str;
+  fn hi(&self) -> &str;
 }
 
 impl Greeting for Foo {
-    fn hi(&self) -> &str {
-        "foo"
-    }
+  fn hi(&self) -> &str {
+      "foo"
+  }
 }
 
 impl Greeting for Bar {
-    fn hi(&self) -> &str {
-        "bar"
-    }
+  fn hi(&self) -> &str {
+      "bar"
+  }
 }
 
-              </code></pre>
-            </div>
-            <div style="float: left; width: 50%;">
-              <pre><code class="lang-rust">
+            </code></pre>
+          </div>
+          <div style="float: left; width: 50%;">
+            <pre><code class="lang-rust">
 fn hello&lt;T: Greeting&gt;(f: T) {
-    println!("{}", f.hi());
+  println!("{}", f.hi());
 }
 
 fn main() {
-    let bar = Bar;
-    hello(bar);
+  let bar = Bar;
+  hello(bar);
 
-    let foo = Foo;
-    hello(foo);
+  let foo = Foo;
+  hello(foo);
 }
-              </code></pre>
-            </div>
-          </section>
+            </code></pre>
+          </div>
+        </section>
 
-        <section>
-          <h2>Vale a pena aprender Rust</h2>
-          <h4>Ele faz você ver as coisas de outro modo.</h4>
+      <section>
+        <h2>Vale a pena aprender Rust</h2>
+        <h4>Ele faz você ver as coisas de outro modo.</h4>
+      </section>
+
+      <section>
+        <h3>Concorrência</h3>
+        <img class="ruby-logo small-logo" src="img/ruby.png"></img>
+        <pre class="fragment fade-out"><code class="lang-ruby">
+words = ["Hello", "world", "from", "Ruby"]
+
+words.map do |w|
+Thread.new do
+  puts "#{w}"
+end.join()
+end
+          </code></pre>
+          <pre class="fragment fade-up"><code class="lang-ruby">
+words = ["Hello", "world", "from", "Ruby"]
+
+words.map do |w|
+Thread.new do
+  words.push(" lol ")
+  puts "#{w}"
+end.join()
+end
+          </code></pre>
+          <pre class="fragment fade-up"><code class="lang-rust">
+use std::thread;
+
+fn main() {
+  let words = vec!["Hello", "World", "From", "Rust"];
+
+  for w in words.clone() {
+      let _ = thread::spawn(move ||{
+          words.push(" lol "); // error: capture of moved value: `words`
+          println!("{}", w);
+      }).join();
+  }
+}
+          </code></pre>
         </section>
 
         <section>
-          <h3>Concorrência</h3>
-          <img class="ruby-logo small-logo" src="img/ruby.png"></img>
-          <pre class="fragment fade-out"><code class="lang-ruby">
-words = ["Hello", "world", "from", "Ruby"]
+          <img class="rust-logo small-logo" src="img/rust.png"></img>
+          <h2>O segredo do Rust é seu sistema</h2>
+          <h4>Ownership, Borrowing e Lifetime</h4>
+        </section>
 
-words.map do |w|
-  Thread.new do
-    puts "#{w}"
-  end.join()
-end
-            </code></pre>
-            <pre class="fragment fade-up"><code class="lang-ruby">
-words = ["Hello", "world", "from", "Ruby"]
+        <section>
+          <img class="rust-logo small-logo" src="img/rust.png"></img>
+          <h4>Ownership</h4>
+          <pre><code class="lang-rust">
+fn main() {
+  let a = vec![10, 5, 4];
+  let b = a; // Transfere o owner
+  let c = b; // Transfere o owner
 
-words.map do |w|
-  Thread.new do
-    words.push(" lol ")
-    puts "#{w}"
-  end.join()
-end
-            </code></pre>
-          </section>
+  println!("{:?}", a); // ERRROUUU (Fausto Silva Voice)
+  println!("{:?}", c); // único valido
+}
+          </code></pre>
+        </section>
 
-          <section>
-            <img class="rust-logo small-logo" src="img/rust.png"></img>
-            <h2>O segredo do Rust é seu sistema</h2>
-            <h4>Ownership, Borrowing e Lifetime</h4>
-          </section>
-
-          <section>
-            <img class="rust-logo small-logo" src="img/rust.png"></img>
-            <h4>Ownership</h4>
+        <section>
+          <h4>Borrowing e Lifetime</h4>
             <pre><code class="lang-rust">
 fn main() {
-    let a = vec![10, 5, 4];
-    let b = a; // Transfere o owner
-    let c = b; // Transfere o owner
+  let a = vec![10, 5, 4]; // a (owner) entra no scopo
+  let b = &a; // Empresta
+  let c = &b; // Empresta
 
-    println!("{:?}", a); // ERRROUUU (Fausto Silva Voice)
-    println!("{:?}", c); // único valido
-}
-            </code></pre>
-          </section>
-
-          <section>
-            <h4>Borrowing e Lifetime</h4>
-              <pre><code class="lang-rust">
-fn main() {
-    let a = vec![10, 5, 4]; // a (owner) entra no scopo
-    let b = &a; // Empresta
-    let c = &b; // Empresta
-
-    println!("{:?}", a); // Ok
-    println!("{:?}", b); // Ok
-    println!("{:?}", c); // Ok
+  println!("{:?}", a); // Ok
+  println!("{:?}", b); // Ok
+  println!("{:?}", c); // Ok
 } // todas saem do scopo
-            </code></pre>
-          </section>
+          </code></pre>
+        </section>
 
         <!-- ExplanationPartEnd -->
         </section>
