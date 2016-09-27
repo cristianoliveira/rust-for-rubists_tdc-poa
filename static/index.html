@@ -341,7 +341,7 @@ include Greeting
 end
 
 f = Foo.new
-f.hi
+puts f.hi
           </code></pre>
         </section>
 
@@ -349,19 +349,20 @@ f.hi
           <img class="rust-logo small-logo" src="img/rust.png"></img>
           <h4>Rust - Traits</h4>
             <pre><code class="lang-rust">
+struct Foo;
 trait Greeting {
-  fn hi(&self) -> &str;
+    fn hi(&self) -> &str;
 }
 
 impl Greeting for Foo {
-  fn hi(&self) -> &str {
-      "hello"
-  }
+    fn hi(&self) -> &str {
+        "foo"
+    }
 }
 
 fn main() {
-  let f = Foo;
-  f.hi();
+    let f = Foo;
+    println!("{}", f.hi());
 }
             </code></pre>
         </section>
@@ -405,8 +406,8 @@ hello(bar)
           <h4>Rust - Generics</h4>
           <div style="float: left; width: 50%;">
             <pre><code class="lang-rust">
-struct Bar
-struct Foo
+struct Bar;
+struct Foo;
 
 trait Greeting {
   fn hi(&self) -> &str;
@@ -513,13 +514,14 @@ fn main() {
           <h4>Ownership</h4>
           <pre><code class="lang-rust">
 fn take(list: Vec&gt;i32&lt;) { println!("take {:?}", list); }
+
 fn main() {
   let a = vec![10, 5, 4];
   let b = a; // Transfere o owner
   let c = b; // Transfere o owner
 
   println!("{:?}", a); // ERRROUUU (Fausto Silva Voice)
-  println!("{:?}", c); // único valido
+  take(c); // único valido
 }
           </code></pre>
         </section>
@@ -527,13 +529,15 @@ fn main() {
         <section>
           <h4>Borrowing e Lifetime</h4>
             <pre><code class="lang-rust">
+fn take(list: &Vec&gt;i32&lt;) { println!("take {:?}", list); }
+
 fn main() {
   let a = vec![10, 5, 4]; // a (owner) entra no scopo
+  take(&a); // Empresta Ok
   let b = &a; // Empresta
   let c = &b; // Empresta
 
   println!("{:?}", a); // Ok
-  println!("{:?}", b); // Ok
   println!("{:?}", c); // Ok
 } // todas saem do scopo
           </code></pre>
