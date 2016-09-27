@@ -155,7 +155,6 @@ fn main() {
         </section>
 
         <section>
-          <img class="ruby-logo small-logo" src="img/ruby.png"></img>
           <img class="rust-logo small-logo" src="img/rust.png"></img>
           <div>
             <h3>O que é?</h3>
@@ -487,7 +486,9 @@ words.map do |w|
   end.join()
 end
           </code></pre>
-          <pre class="fragment fade-up"><code class="lang-rust">
+          <pre class="fragment fade-up">
+          <img class="rust-logo small-logo" src="img/rust.png"></img>
+          <code class="lang-rust">
 use std::thread;
 
 fn main() {
@@ -513,23 +514,24 @@ fn main() {
           <img class="rust-logo small-logo" src="img/rust.png"></img>
           <h4>Ownership</h4>
           <pre><code class="lang-rust">
-fn take(list: Vec&gt;i32&lt;) { println!("take {:?}", list); }
+fn take(list: Vec&lt;i32&gt;) { println!("take {:?}", list); }
 
 fn main() {
   let a = vec![10, 5, 4];
   let b = a; // Transfere o owner
   let c = b; // Transfere o owner
 
-  println!("{:?}", a); // ERRROUUU (Fausto Silva Voice)
   take(c); // único valido
+  println!("{:?}", a); // ERRROUUU (Fausto Silva Voice)
 }
           </code></pre>
         </section>
 
         <section>
-          <h4>Borrowing e Lifetime</h4>
+          <img class="rust-logo small-logo" src="img/rust.png"></img>
+          <h4>Borrowing</h4>
             <pre><code class="lang-rust">
-fn take(list: &Vec&gt;i32&lt;) { println!("take {:?}", list); }
+fn take(list: &Vec&lt;i32&gt;) { println!("take {:?}", list); }
 
 fn main() {
   let a = vec![10, 5, 4]; // a (owner) entra no scopo
