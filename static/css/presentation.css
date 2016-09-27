@@ -17,7 +17,7 @@
 
 .rust-logo {
   float: right;
-  width: 100px;
+  width: 115px;
   position: absolute;
   top: 0;
   right: 0;
@@ -41,4 +41,11 @@ a.test-arrow {
     font-size: 130%;
     top: 5px;
     right: 5px;
+}
+
+.reveal section img {
+    margin: 15px 0px;
+    background: none;
+    border: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
 }
