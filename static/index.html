@@ -45,9 +45,7 @@
         <section>
         <!-- MotivationPart -->
           <section>
-            <h2>Sobre a linguagem</h2>
-            <p>Rust é uma linguagem compilada, extremamente rápida, de tipagem estática e que 
-              foi projetada para garantir segurança, concorrência de forma prática</p>
+            <h2>Falar de Rust em uma trilha de Ruby?</h2>
           </section>
 
           <section>
@@ -158,6 +156,16 @@ fn main() {
 
         <section>
           <img class="ruby-logo small-logo" src="img/ruby.png"></img>
+          <img class="rust-logo small-logo" src="img/rust.png"></img>
+          <div>
+            <h3>O que é?</h3>
+            <p>Rust é uma linguagem compilada, extremamente rápida, de tipagem estática e que 
+              foi projetada para garantir segurança, concorrência de forma prática</p>
+          </div>
+        </section>
+
+        <section>
+          <img class="ruby-logo small-logo" src="img/ruby.png"></img>
           <div>
             <h4>Ruby é lento, mas a gente ama ele mesmo assim.</h4>
             <h1> <3 </h1>
@@ -166,7 +174,7 @@ fn main() {
 
         <section>
           <h2>Porque a diferença?</h2>
-          <h4>O que a gente pode aprender sobre Ruby através do Rust</h4>
+          <h4>Podemos aprender muito analisando Ruby e Rust</h4>
         </section>
 
         <section>
@@ -178,8 +186,8 @@ fn main() {
 2 * 7 + 3
               </code></pre>
               <pre><code class="lang-rust">
-fn main() -> i32 {
-  2 * 7 + 3
+fn main() {
+  2 * 7 + 3;
 }
               </code></pre>
         </section>
@@ -206,7 +214,7 @@ fn main() -> i32 {
 
         <section>
           <img class="ruby-logo small-logo" src="img/ruby.png"></img>
-          <h4>3 - Compile para byte code</h4>
+          <h4>3 - Compila para byte code</h4>
               <pre><code class="lang-ruby">
 # code.rb
 2 * 7 + 3
@@ -227,7 +235,7 @@ puts RubyVM::InstructionSequence.compile(code).disassemble
 
         <section>
           <img class="ruby-logo small-logo" src="img/ruby.png"></img>
-          <h4>4 - Interpreta</h4>
+          <h4>Finalmente - Interpreta</h4>
           <img src="img/interpreter.png"></img>
         </section>
 
@@ -247,8 +255,8 @@ puts RubyVM::InstructionSequence.compile(code).disassemble
           <img class="rust-logo small-logo" src="img/rust.png"></img>
           <h4>Mesmo código em Rust</h4>
           <pre><code class="lang-rust">
-fn main() -> i32 {
-  2 * 7 + 3
+fn main() {
+  2 * 7 + 3;
 }
           </code></pre>
           <pre><code class="lang-bash">
@@ -314,7 +322,7 @@ fn main() {
             <h4>Compilando</h4>
             <p>Gera cerca de 80 linhas de assembly</p>
             <h4>Com otimização</h4>
-            <p>Gera 30 linhas == literalmente um programa vazio</p>
+            <p>Literalmente um programa vazio</p>
           </div>
         </section>
 
@@ -418,7 +426,7 @@ impl Greeting for Bar {
 
             </code></pre>
           </div>
-          <div style="float: left; width: 50%;">
+          <div class="fragment fade-out" style="float: left; width: 50%;">
             <pre><code class="lang-rust">
 fn hello&lt;T: Greeting&gt;(f: T) {
   println!("{}", f.hi());
@@ -430,6 +438,22 @@ fn main() {
 
   let foo = Foo;
   hello(foo);
+}
+            </code></pre>
+          </div>
+          <div class="fragment fade-up" style="float: left; width: 50%;">
+          <h5>Monomorphisation</h5>
+            <pre><code class="lang-rust">
+fn hello&lt;T: Greeting&gt;(f: T) {
+  println!("{}", f.hi());
+}
+
+fn main() {
+  let bar = Bar;
+  hello_bar(bar);
+
+  let foo = Foo;
+  hello_bar(foo);
 }
             </code></pre>
           </div>
@@ -481,13 +505,14 @@ fn main() {
         <section>
           <img class="rust-logo small-logo" src="img/rust.png"></img>
           <h2>O segredo do Rust é seu sistema</h2>
-          <h4>Ownership, Borrowing e Lifetime</h4>
+          <h4>Ownership e Borrowing</h4>
         </section>
 
         <section>
           <img class="rust-logo small-logo" src="img/rust.png"></img>
           <h4>Ownership</h4>
           <pre><code class="lang-rust">
+fn take(list: Vec&gt;i32&lt;) { println!("take {:?}", list); }
 fn main() {
   let a = vec![10, 5, 4];
   let b = a; // Transfere o owner
