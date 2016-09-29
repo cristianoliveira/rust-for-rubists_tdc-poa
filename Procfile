@@ -1,1 +1,1 @@
-web: ./target/release/rust-from-ruby-server
+web: ./target/release/server

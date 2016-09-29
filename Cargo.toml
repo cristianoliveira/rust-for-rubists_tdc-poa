@@ -3,6 +3,9 @@ name = "rust-from-ruby-server"
 version = "0.1.0"
 authors = ["Cristian Oliveira <contato@cristianoliveira.com.br>"]
 
+[[bin]]
+name = "server"
+
 [dependencies]
 iron="*"
 mount = "0.2"
