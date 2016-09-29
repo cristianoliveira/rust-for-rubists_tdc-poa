@@ -1,0 +1,11 @@
+{
+  "name": "Rust from Ruby server",
+  "description": "The presentation server",
+  "repository": "https://github.com/cristianoliveira/rust-from-ruby",
+  "success_url": "/",
+  "keywords": ["rust", "iron"],
+  "website": "http://www.cristianoliveira.com",
+  "env": {
+    "BUILDPACK_URL": "https://github.com/cristianoliveira/rust-from-ruby"
+  }
+}
