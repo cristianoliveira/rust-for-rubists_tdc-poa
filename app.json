@@ -6,6 +6,6 @@
   "keywords": ["rust", "iron"],
   "website": "http://www.cristianoliveira.com",
   "env": {
-    "BUILDPACK_URL": "https://github.com/cristianoliveira/rust-from-ruby"
+    "BUILDPACK_URL": "https://github.com/emk/heroku-buildpack-rust.git"
   }
 }
