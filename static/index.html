@@ -467,19 +467,20 @@ fn main() {
         <h3>Concorrência</h3>
         <img class="ruby-logo small-logo" src="img/ruby.png"></img>
         <pre class="fragment fade-out"><code class="lang-ruby">
-words = ["Hello", "world", "from", "Ruby"]
+words = ["Hello", "world", "From", "Ruby"]
 
-words.map do |w|
+words.each_with_index do |w, i|
   Thread.new do
-    puts "#{w}"
-  end.join()
-end
+    puts "Thread #{i} print #{words[i]}"
+  end
+end.join()
           </code></pre>
           <pre class="fragment fade-up"><code class="lang-ruby">
 words = ["Hello", "world", "From", "Ruby"]
 
 words.each_with_index do |w, i|
   Thread.new do
+    words.push(" lol ")
     puts "Thread #{i} print #{words[i]}"
   end
 end.join()
