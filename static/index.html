@@ -476,14 +476,13 @@ words.map do |w|
 end
           </code></pre>
           <pre class="fragment fade-up"><code class="lang-ruby">
-words = ["Hello", "world", "from", "Ruby"]
+words = ["Hello", "world", "From", "Ruby"]
 
-words.map do |w|
+words.each_with_index do |w, i|
   Thread.new do
-    words.push(" lol ")
-    puts "#{w}"
-  end.join()
-end
+    puts "Thread #{i} print #{words[i]}"
+  end
+end.join()
           </code></pre>
           <div class="fragment fade-up">
             <img class="rust-logo small-logo" src="img/rust.png"></img>
@@ -496,9 +495,9 @@ fn main() {
 
   for w in words.clone() {
       let _ = thread::spawn(move ||{
-          words.push(" lol "); // error: capture of moved value: `words`
+          //words.push(" lol "); // error: capture of moved value: `words`
           println!("{}", w);
-      }).join();
+      });
   }
 }
           </code></pre></div>

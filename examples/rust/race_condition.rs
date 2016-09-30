@@ -4,11 +4,12 @@ fn main() {
     let words = vec!["Hello", "World", "From", "Rust"];
     // words.push(" lol ");
 
-    for w in words.clone() {
+    let threads = for w in words.clone() {
         let _ = thread::spawn(move ||{
             println!("{}", w);
-        }).join();
-    }
+        });
+    };
+    threads.join()
 }
 
 // Running

@@ -1,20 +1,17 @@
 words = ["Hello", "world", "From", "Ruby"]
+# words.map do |w|
+#   Thread.new do
+#     puts "#{w}"
+#   end
+# end.each(&:join)
 
-words.map do |w|
+words.each_with_index.map do |w, i|
   Thread.new do
     words.push(" lol ")
-    puts "#{w}"
-  end.join()
-end
+    puts "#{i} #{words[i]}"
+  end
+end.each(&:join)
 
-# words.each_with_index do |w, i|
-#   Thread.new do
-#     # This is weird in Ruby but it's closer to the println! macro
-#     # usage in the Rust example.
-#     puts "#{words[i]}"
-#   end.join()
-# end
-#
 
 # Running
 # cd example/ruby/
