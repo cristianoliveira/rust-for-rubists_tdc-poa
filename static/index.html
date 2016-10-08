@@ -535,6 +535,31 @@ fn main() {
         <section>
           <h4>Threads</h4>
           <img class="ruby-logo small-logo" src="img/ruby.png"></img>
+          <div style="float: left; width: 60%;">
+            <pre><code class="lang-ruby">
+words = ["Hello", "world", "From", "Ruby"]
+
+100.times.map do
+    words.each_with_index.map do |w, i|
+      puts "#{i} #{words[i]}"
+    end
+end
+
+100.times.map do
+  Thread.new do
+    words.each_with_index.map do |w, i|
+      puts "#{i} #{words[i]}"
+    end
+  end
+end.each(&:join)
+              </code></pre>
+            </div>
+            <img class="fragment fade-in" style="float: right; width: 40%;" src="img/gil.gif" ></img>
+          </section>
+
+        <section>
+          <h4>Threads</h4>
+          <img class="ruby-logo small-logo" src="img/ruby.png"></img>
           <div class="fragment fade-out">
             <pre><code class="lang-ruby">
     words = ["Hello", "world", "From", "Ruby"]
@@ -545,7 +570,6 @@ fn main() {
       end
     end.each(&:join)
               </code></pre>
-              <img src="img/gil.gif" ></img>
             </div>
             <pre class="fragment fade-in fade-up"><code class="lang-ruby">
   words = ["Hello", "world", "From", "Ruby"]

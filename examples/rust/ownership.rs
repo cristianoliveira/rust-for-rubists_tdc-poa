@@ -1,10 +1,9 @@
+fn take(list: Vec<i32>) { println!("{:?}", list)}
+
 fn main() {
     let a = vec![10, 5, 4];
-    let b = a; // Transfere o owner
-    let c = b; // Transfere o owner
-
-    println!("{:?}", a); // ERRROUUU (Fausto Silva Voice)
-    println!("{:?}", c); // único valido
+    take(a); // Transfere o owner
+    println!("{:?}", a); // ERRROUUU error: use of moved value: `a`
 }
 
 // Running

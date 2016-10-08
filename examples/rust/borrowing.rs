@@ -1,11 +1,9 @@
+fn take(list: &Vec<i32>) { println!("{:?}", list)}
+
 fn main() {
     let a = vec![10, 5, 4];
-    let b = &a; // Empresta
-    let c = &b; // Empresta
-
-    println!("{:?}", a); // Ok
-    println!("{:?}", b); // Ok
-    println!("{:?}", c); // Ok
+    take(&a); // Empresta
+    println!("{:?}", a); // ok
 }
 
 // Running

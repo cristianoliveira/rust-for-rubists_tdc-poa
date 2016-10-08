@@ -2,7 +2,7 @@ use std::thread;
 
 fn main() {
     let words = vec!["Hello", "World", "From", "Rust"];
-    // words.push(" lol ");
+    words.push(" lol ");
 
     let threads = for w in words.clone() {
         let _ = thread::spawn(move ||{
