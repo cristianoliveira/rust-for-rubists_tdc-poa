@@ -1,3 +1,26 @@
+.reveal pre {
+  display: block;
+  position: relative;
+  width: 98%;
+  margin: 20px auto;
+  text-align: left;
+  font-size: 0.55em;
+  font-family: monospace;
+  line-height: 1.2em;
+  word-wrap: break-word;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3);
+}
+
+.reveal pre code {
+  display: block;
+  padding: 0 15px;
+  overflow: auto;
+  max-height: 600px;
+  word-wrap: normal;
+  font-size: 139%;
+  line-height: 110%;
+}
+
 .reveal .slides>section>section.ruby {
   background-image: url("../img/ruby.png");
   background-repeat: no-repeat;
@@ -48,4 +71,21 @@ a.test-arrow {
     background: none;
     border: none;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+.inverted {
+  -moz-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  transform: scaleX(-1);
+  -ms-filter: fliph; /*IE*/
+  filter: fliph; /*IE*/
+}
+
+.reveal .languages {
+  border: 1px solid;
+}
+.reveal .languages td {
+  padding: 10px;
+  border: 1px solid;
 }

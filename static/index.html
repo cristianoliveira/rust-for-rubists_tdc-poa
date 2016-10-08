@@ -69,10 +69,6 @@
           </section>
 
           <section>
-            <img src="img/but-why.gif"></img>
-          </section>
-
-          <section>
             <h2>Motivo 1</h2>
             <p>"A language that doesn’t affect the way you think about programming is not worth knowing."</p>
             <p>- Alan Perlis</p>
@@ -81,20 +77,7 @@
           <section>
             <h2>Motivo 2</h2>
             <h3>Rust é extremamente rápido.</h3>
-            <pre><code class="lang-bash">
-~$ time ./helloworld                                                                                 [ruby-2.2.1]
-Hello, world
-./helloworld  0.00s user 0.00s system 66% cpu 0.003 total
-            </code></pre>
-          </section>
-
-          <section>
-            <h3>Mesmo código em Ruby</h3>
-            <pre><code class="lang-bash">
-~$ time ruby examples/ruby/helloworld.rb
-Hello, world
-ruby examples/ruby/helloworld.rb  0.04s user 0.01s system 94% cpu 0.045 total
-            </code></pre>
+            <img src="img/rustbench.png"></img>
           </section>
 
           <section>
@@ -107,18 +90,65 @@ ruby examples/ruby/helloworld.rb  0.04s user 0.01s system 94% cpu 0.045 total
           </section>
 
           <section>
-            <h2>Motivo 3</h2>
-            <p>Muita gente massa do Ruby esta participando do Rust</p>
+            <h3>String#blank? Use case.</h3>
+            <p><a href="https://github.com/SamSaffron/fast_blank/blob/master/ext/fast_blank/fast_blank.c">fast_blank.c</a></p>
+            <div class="fragment fade-out">
+              <pre><code class="lang-c">
+// ... define stuff ...
+static VALUE
+rb_str_blank_as(VALUE str)
+{
+  rb_encoding *enc;
+  char *s, *e;
+
+  enc = STR_ENC_GET(str);
+  s = RSTRING_PTR(str);
+  if (!s || RSTRING_LEN(str) == 0) return Qtrue;
+
+  e = RSTRING_END(str);
+  while (s < e) {
+    int n;
+    unsigned int cc = rb_enc_codepoint_len(s, e, &n, enc);
+
+    switch (cc) {
+      case 9:
+      case 0xa:
+      case 0xb:
+      case 0xc:
+      case 0xd:
+      case 0x20:
+      case 0x85:
+// ... mais 50 linhas de código from hell...
+              </code></pre>
+              </div>
+            <div class="fragment fade-up">
+              <p>Mais eficiente que a implementação original em 1 linha legível.</p>
+              <pre><code class="lang-rust">
+  pub extern "C" fn tr_str_is_blank(stream: Buf) -> bool {
+      stream.as_slice().chars().all(|c| c.is_whitespace())
+  }
+              </code></pre>
+              <p><a href="https://www.youtube.com/watch?v=IqrwPVtSHZI">Yehuda's vídeo</a></p>
+            </div>
           </section>
 
           <section>
-            <h2>Motivo 4</h2>
+            <h2>Motivo 3</h2>
             <p>Toda a segurança e conveniência do Ruby em código nativo - wycat</p>
+            <h5>Rust uma linguagem inclusiva!</h5>
             <img src="img/rustconf.jpg" height="500"></img>
           </section>
 
           <section>
-            <h2>Motivo 5</h2>
+            <h2>Rust e outras linguagens</h2>
+          <div style="position:relative; width:840px; height:480px; margin:0 auto;">
+            <img class="fragment fade-in" src="img/performancexsafety1.png"  style="position:absolute; top:0; left:30px;"></img>
+            <img class="fragment fade-in" src="img/performancexsafety2.png"  style="position:absolute; top:0; left:30px;"></img>
+          </div>
+          </section>
+
+          <section>
+            <h2>Motivo 4</h2>
             <p>Você pode aprender muito como Ruby funciona através do Rust</p>
             <h5>Tentarei ensinar algo novo hoje! :)</h5>
           </section>
@@ -150,9 +180,22 @@ fn main() {
         </section>
 
         <section>
-          <img class="ruby-logo small-logo" src="img/ruby.png"></img>
+          <img class="rust-logo small-logo" src="img/rust.png"></img>
           <div>
-            <h4>Rust</h4>
+            <h3>Rust</h3>
+            <ul>
+              <li>Tipagem estática</li>
+              <li>Extremamente rápida</li>
+              <li>Ótimo suporte a concorrência</li>
+              <li>Sem garbage collector</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="inverted">
+          <img class="ruby-logo small-logo" src="img/ruby.png"></img>
+          <div >
+            <h3>Ruby</h3>
             <ul>
               <li>Tipagem estática</li>
               <li>Extremamente rápida</li>
@@ -164,15 +207,25 @@ fn main() {
 
         <section>
           <img class="ruby-logo small-logo" src="img/ruby.png"></img>
-          <div>
-            <h4>Ruby é lento, mas a gente ama ele mesmo assim.</h4>
-            <h1> <3 </h1>
+          <img class="rust-logo small-logo" src="img/rust.png"></img>
+          <div >
+            <h3>Duas abordagens diferentes</h3>
+            <table class="languages">
+              <tr><td>Ruby</td><td>Rust</td></tr>
+              <tr><td>Interpretada</td><td>Compilada</td></tr>
+              <tr><td>Tipagem dinâmica</td><td>Estática com inferência</td></tr>
+              <tr><td>GIL</td><td>Concorrência</td></tr>
+              <tr><td>Garbage Collector</td><td>Ownership / Borrowing</td></tr>
+            </table>
           </div>
         </section>
 
         <section>
-          <h2>Porque a diferença?</h2>
-          <h4>Podemos aprender muito analisando Ruby e Rust</h4>
+          <img class="ruby-logo small-logo" src="img/ruby.png"></img>
+          <img class="rust-logo small-logo" src="img/rust.png"></img>
+          <div>
+            <h3>Duas abordagens diferentes.</h3>
+          </div>
         </section>
 
         <section>
@@ -279,6 +332,25 @@ $ ./code
 
         <section>
           <img class="ruby-logo small-logo" src="img/ruby.png"></img>
+          <img class="rust-logo small-logo" src="img/rust.png"></img>
+          <h3>Tipagems estática e dinâmica</h3>
+          <p>Consequências de cada decisão de design</p>
+          <div>
+              <pre><code class="lang-ruby">
+integer = 10
+string = "bla"
+              </code></pre>
+              <pre><code class="lang-rust">
+fn main() {
+  let integer = 10;
+  let string: &str = "bla";
+}
+              </code></pre>
+          </div>
+        </section>
+
+        <section>
+          <img class="ruby-logo small-logo" src="img/ruby.png"></img>
           <h4>Ruby - Classes</h4>
           <div style="float: left; width: 30%;">
               <pre><code class="lang-ruby">
@@ -328,14 +400,14 @@ fn main() {
           <img class="ruby-logo small-logo" src="img/ruby.png"></img>
           <h4>Ruby - Modules - Mixins</h4>
             <pre><code class="lang-ruby">
-module Greeting
+module greeting
   def hi
     "bar"
   end
 end
 
 class Foo
-include Greeting
+  include Greeting
 end
 
 f = Foo.new
@@ -370,10 +442,10 @@ fn main() {
           <h4>Ruby - Ducktype</h4>
           <div style="float: left; width: 50%;">
             <pre><code class="lang-ruby">
+module Greeting ..
+
 class Foo
-  def hi
-    "foo"
-  end
+  include Greeting
 end
 
 class Bar
@@ -422,7 +494,6 @@ impl Greeting for Bar {
       "bar"
   }
 }
-
             </code></pre>
           </div>
           <div class="fragment fade-out" style="float: left; width: 50%;">
@@ -443,66 +514,67 @@ fn main() {
           <div class="fragment fade-up" style="float: left; width: 50%;">
           <h5>Monomorphisation</h5>
             <pre><code class="lang-rust">
-fn hello&lt;T: Greeting&gt;(f: T) {
-  println!("{}", f.hi());
-}
+fn hello_bar(f: Bar) { .. }
+fn hello_foo(f: Foo) { .. }
 
 fn main() {
   let bar = Bar;
   hello_bar(bar);
 
   let foo = Foo;
-  hello_bar(foo);
+  hello_foo(foo);
 }
             </code></pre>
           </div>
         </section>
 
-      <section>
-        <h2>Vale a pena aprender Rust</h2>
-        <h4>Ele faz você ver as coisas de outro modo.</h4>
-      </section>
-
-      <section>
-        <h3>Concorrência</h3>
-        <img class="ruby-logo small-logo" src="img/ruby.png"></img>
-        <pre class="fragment fade-out"><code class="lang-ruby">
-words = ["Hello", "world", "From", "Ruby"]
-
-words.each_with_index do |w, i|
-  Thread.new do
-    puts "Thread #{i} print #{words[i]}"
-  end
-end.join()
-          </code></pre>
-          <pre class="fragment fade-up"><code class="lang-ruby">
-words = ["Hello", "world", "From", "Ruby"]
-
-words.each_with_index do |w, i|
-  Thread.new do
-    words.push(" lol ")
-    puts "Thread #{i} print #{words[i]}"
-  end
-end.join()
-          </code></pre>
-          <div class="fragment fade-up">
-            <img class="rust-logo small-logo" src="img/rust.png"></img>
-            <pre>
-            <code class="lang-rust">
-use std::thread;
-
-fn main() {
-  let words = vec!["Hello", "World", "From", "Rust"];
-
-  for w in words.clone() {
-      let _ = thread::spawn(move ||{
-          //words.push(" lol "); // error: capture of moved value: `words`
-          println!("{}", w);
-      });
-  }
-}
-          </code></pre></div>
+        <section>
+          <h3>Concorrência</h3>
         </section>
+
+        <section>
+          <h4>Threads</h4>
+          <img class="ruby-logo small-logo" src="img/ruby.png"></img>
+          <div class="fragment fade-out">
+            <pre><code class="lang-ruby">
+    words = ["Hello", "world", "From", "Ruby"]
+
+    words.each_with_index.map do |w, i|
+      Thread.new do
+        puts "Thread #{i} print #{words[i]}"
+      end
+    end.each(&:join)
+              </code></pre>
+              <img src="img/gil.gif" ></img>
+            </div>
+            <pre class="fragment fade-in fade-up"><code class="lang-ruby">
+  words = ["Hello", "world", "From", "Ruby"]
+
+  words.each_with_index.map do |w, i|
+    Thread.new do
+      words.push(" lol ")
+      puts "Thread #{i} print #{words[i]}"
+    end
+  end.each(&:join)
+            </code></pre>
+            <div class="fragment fade-up">
+              <img class="rust-logo small-logo" src="img/rust.png"></img>
+              <pre>
+              <code class="lang-rust">
+  use std::thread;
+
+  fn main() {
+    let words = vec!["Hello", "World", "From", "Rust"];
+
+    for w in words.clone() {
+        let _ = thread::spawn(move ||{
+            words.push(" lol "); // error: capture of moved value: `words`
+            println!("{}", w);
+        });
+    }
+  }
+            </code></pre></div>
+          </section>
 
         <section>
           <img class="rust-logo small-logo" src="img/rust.png"></img>
@@ -514,35 +586,40 @@ fn main() {
           <img class="rust-logo small-logo" src="img/rust.png"></img>
           <h4>Ownership</h4>
           <pre><code class="lang-rust">
-fn take(list: Vec&lt;i32&gt;) { println!("take {:?}", list); }
+struct Book;
+fn take(book: Book) { /* faz algo e libera memória (book) */ }
 
 fn main() {
-  let a = vec![10, 5, 4];
-  let b = a; // Transfere o owner
-  let c = b; // Transfere o owner
-
-  take(c); // único valido
-  println!("{:?}", a); // ERRROUUU (Fausto Silva Voice)
+  let a = Book;
+  take(a); // Transfere o owner do book
+  println!("{:?}", a); // Tenta usar o book novamente. Erro!
 }
           </code></pre>
+          <div style="position:relative; width:640px; height:480px; margin:0 auto;">
+            <img class="fragment fade-in" src="img/ownership1.png"  style="position:absolute; top:0; left:30px;"></img>
+            <img class="fragment fade-in" src="img/ownership2.png"  style="position:absolute; top:0; left:30px;"></img>
+            <img class="fragment fade-in" src="img/ownership3.png"  style="position:absolute; top:0; left:30px;"></img>
+          </div>
         </section>
 
         <section>
           <img class="rust-logo small-logo" src="img/rust.png"></img>
           <h4>Borrowing</h4>
             <pre><code class="lang-rust">
-fn take(list: &Vec&lt;i32&gt;) { println!("take {:?}", list); }
+struct Book;
+fn take(book: &Book) { /* faz algo e libera memória (book) */ }
 
 fn main() {
-  let a = vec![10, 5, 4]; // a (owner) entra no scopo
+  let a = Book; // a (owner) do book entra no scopo
   take(&a); // Empresta Ok
-  let b = &a; // Empresta
-  let c = &b; // Empresta
-
   println!("{:?}", a); // Ok
-  println!("{:?}", c); // Ok
 } // todas saem do scopo
           </code></pre>
+          <div style="position:relative; width:640px; height:480px; margin:0 auto;">
+            <img class="fragment fade-in" src="img/borrowing1.png"  style="position:absolute; top:0; left:30px;"></img>
+            <img class="fragment fade-in" src="img/borrowing2.png"  style="position:absolute; top:0; left:30px;"></img>
+            <img class="fragment fade-in" src="img/borrowing3.png"  style="position:absolute; top:0; left:30px;"></img>
+          </div>
         </section>
 
         <!-- ExplanationPartEnd -->

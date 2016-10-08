@@ -1,9 +1,4 @@
 words = ["Hello", "world", "From", "Ruby"]
-# words.map do |w|
-#   Thread.new do
-#     puts "#{w}"
-#   end
-# end.each(&:join)
 
 words.each_with_index.map do |w, i|
   Thread.new do
