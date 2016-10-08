@@ -537,12 +537,12 @@ fn main() {
           <img class="ruby-logo small-logo" src="img/ruby.png"></img>
           <div style="float: left; width: 60%;">
             <pre><code class="lang-ruby">
-words = ["Hello", "world", "From", "Ruby"]
+words = ["H", "e", "l", "l", "o"]
 
 100.times.map do
-    words.each_with_index.map do |w, i|
-      puts "#{i} #{words[i]}"
-    end
+  words.each_with_index.map do |w, i|
+    puts "#{i} #{words[i]}"
+  end
 end
 
 100.times.map do
